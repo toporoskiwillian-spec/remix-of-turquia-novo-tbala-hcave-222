@@ -300,7 +300,7 @@ function Hero() {
         </motion.h1>
       </div>
       <div className="absolute inset-x-0 bottom-0 z-20 border-y border-gold-soft/40 bg-[color:var(--cvc-ink)]/70 backdrop-blur-sm">
-        <p className="group cursor-default px-6 py-6 text-center font-display text-lg italic text-gold-soft transition-all duration-500 hover:text-[#f5d76e] hover:[text-shadow:0_0_18px_rgba(245,205,85,0.9),0_0_40px_rgba(245,205,85,0.6)] md:text-3xl">
+        <p className="group cursor-default px-6 py-6 text-center font-display text-lg italic text-gold-soft transition-all duration-500 hover:text-[#f5d76e] hover:[text-shadow:0_0_18px_rgba(245,205,85,0.9),0_0_40px_rgba(245,205,85,0.6)] md:px-48 md:text-2xl">
           Cada detalhe pensado em você e curado só para vocês pela CVC Park Shopping Boulevard
         </p>
       </div>
