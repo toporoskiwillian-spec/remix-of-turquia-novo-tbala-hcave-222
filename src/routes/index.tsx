@@ -267,33 +267,34 @@ function Hero() {
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-ink)]/70 via-transparent to-[color:var(--cvc-ink)]" />
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 md:px-12 md:pb-32">
-        <motion.div {...fadeUp} className="mb-6 flex items-center gap-4">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-40 pt-32 md:px-12 md:pb-44">
+        <motion.div {...fadeUp} className="mb-5 flex items-center gap-4">
           <span className="h-px w-10 bg-gold-soft" />
           <span className="text-[10px] uppercase tracking-[0.35em] text-gold-soft md:text-xs">
             Maior Viagens de Franquia do Brasil · Referência Internacional
           </span>
         </motion.div>
-        <motion.div {...fadeUp} className="mb-8 font-display leading-[1.05]">
-          <div className="text-[4.5rem] font-normal text-off-white md:text-[9rem]">Super</div>
-          <div className="text-[4.5rem] italic text-gold-gradient animate-shimmer bg-clip-text md:text-[9rem]">Turquia</div>
+        <motion.div {...fadeUp} className="mb-2 font-display leading-[1.1]">
+          <span className="text-3xl font-normal text-off-white md:text-5xl">Super </span>
+          <span className="text-3xl italic text-gold-gradient animate-shimmer bg-clip-text md:text-5xl">Turquia</span>
         </motion.div>
-        <motion.h1
-          {...fadeUp}
-          className="max-w-4xl font-display text-[1.75rem] font-light leading-[1.1] text-off-white md:text-[3rem]"
-        >
-          Dirlene e Família{" "}
-          <em className="not-italic text-gold-gradient animate-shimmer bg-clip-text">Singer Pereira</em>
-          <br />
-          <span className="text-off-white/85 italic font-light">entre Istambul e a magia da Capadócia.</span>
+        <motion.h1 {...fadeUp} className="max-w-5xl">
+          <span className="block text-[11px] uppercase tracking-[0.4em] text-off-white/80 md:text-sm">Dirlene e Família</span>
+          <span
+            className="block py-2 text-[4rem] leading-[1.15] text-gold-gradient animate-shimmer bg-clip-text md:text-[8.5rem]"
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
+            Singer Pereira
+          </span>
+          <span className="mt-2 block font-display text-2xl font-light italic text-off-white md:text-4xl">
+            entre Istambul e a magia da Capadócia.
+          </span>
         </motion.h1>
-        <motion.p
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.2 }}
-          className="mt-8 max-w-xl text-base font-light leading-relaxed text-off-white/80 md:text-lg"
-        >
-          Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.
-        </motion.p>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 z-20 border-y border-gold-soft/40 bg-[color:var(--cvc-ink)]/70 backdrop-blur-sm">
+        <p className="group cursor-default px-6 py-6 text-center font-display text-lg italic text-gold-soft transition-all duration-500 hover:text-[#f5d76e] hover:[text-shadow:0_0_18px_rgba(245,205,85,0.9),0_0_40px_rgba(245,205,85,0.6)] md:text-3xl">
+          Cada detalhe pensado em você e curado só para vocês pela CVC Park Shopping Boulevard
+        </p>
       </div>
     </section>
   );
