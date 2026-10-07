@@ -274,7 +274,7 @@ function Hero() {
             Maior Viagens de Franquia do Brasil · Referência Internacional
           </span>
         </motion.div>
-        <motion.div {...fadeUp} className="mb-8 font-display leading-[0.9]">
+        <motion.div {...fadeUp} className="mb-8 font-display leading-[1.05]">
           <div className="text-[4.5rem] font-normal text-off-white md:text-[9rem]">Super</div>
           <div className="text-[4.5rem] italic text-gold-gradient animate-shimmer bg-clip-text md:text-[9rem]">Turquia</div>
         </motion.div>
