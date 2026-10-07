@@ -158,14 +158,12 @@ function TurquiaLanding() {
       <Voos />
       <VideoFeature />
       <Bento />
-      <CategoryIcons />
       <CvcDifferentials />
       <Reviews />
       <Seguro />
       <Budget />
-      <Includes />
-      <FinaleReveal />
       <Equipe />
+      <FinaleReveal />
       <Footer />
       <FloatingWa />
     </main>
@@ -624,7 +622,30 @@ function Budget() {
             </div>
           </div>
 
-          <WaChooser label="Reservar via WhatsApp" className="mt-10 px-8 py-4" />
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <WaChooser label="Reservar via WhatsApp" className="px-8 py-4" />
+            {detalhesViagem.map((d) => (
+              <Dialog key={d.t}>
+                <DialogTrigger asChild>
+                  <button className="rounded-full bg-[#d9b43c] px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:bg-[#f5cd55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)]">
+                    {d.icon} {d.t}
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto border-border bg-[color:var(--cvc-ink)] text-off-white">
+                  <DialogHeader>
+                    <DialogTitle className="font-display text-3xl font-light text-off-white">
+                      {d.icon} <span className="text-gold-soft">{d.t}</span>
+                    </DialogTitle>
+                  </DialogHeader>
+                  <ul className="mt-4 space-y-4 text-left text-sm font-light text-off-white/85">
+                    {d.items.map((x) => (
+                      <li key={x} className="flex gap-3"><span className="mt-2 h-px w-4 flex-shrink-0 bg-gold-soft" />{x}</li>
+                    ))}
+                  </ul>
+                </DialogContent>
+              </Dialog>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

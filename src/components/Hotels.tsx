@@ -120,7 +120,7 @@ function HotelCard({ h }: { h: (typeof hoteis)[number] }) {
         <h3 className="mt-2 font-display text-2xl text-off-white">{h.nome}</h3>
         <Dialog>
           <DialogTrigger asChild>
-            <button className="mt-5 bg-[color:var(--cvc-silver)] px-6 py-3 text-[0.65rem] uppercase tracking-[0.3em] text-black transition hover:bg-off-white">
+            <button className="mt-5 rounded-full bg-[#d9b43c] px-7 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-[#f5cd55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)]">
               Detalhes
             </button>
           </DialogTrigger>
