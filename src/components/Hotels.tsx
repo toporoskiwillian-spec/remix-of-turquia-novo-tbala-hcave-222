@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Check, MapPin } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-import istambulImg from "@/assets/hotels/istambul.jpg";
+import radissonMerterAsset from "@/assets/hotels/radisson-istanbul-merter.asset.json";
 import capadociaImg from "@/assets/hotels/capadocia.jpg";
 import pamukkaleImg from "@/assets/hotels/pamukkale.jpg";
 import izmirImg from "@/assets/hotels/izmir.jpg";
@@ -10,19 +10,18 @@ import ankaraImg from "@/assets/hotels/ankara.jpg";
 import canakkaleImg from "@/assets/hotels/canakkale.jpg";
 import cavernaImg from "@/assets/turquia/hotel-caverna.jpg";
 import balaoImg from "@/assets/turquia/balao.jpg";
-import istambulCity from "@/assets/turquia/istambul.jpg";
 import pamukkaleCity from "@/assets/turquia/pamukkale.jpg";
 import efesoImg from "@/assets/turquia/efeso.jpg";
 import yhtImg from "@/assets/turquia/trem-yht.jpg";
 
 const hoteis = [
   {
-    nome: "Occidental Taksim",
+    nome: "Radisson Hotel Istanbul Merter",
     cidade: "Istambul",
-    img: istambulImg,
-    fotos: [istambulImg, istambulCity],
-    resumo: "Hotel contemporâneo no coração de Taksim, a poucos passos da Avenida Istiklal, de restaurantes, lojas e da vida cultural de Istambul.",
-    comodidades: ["Quartos modernos com ar-condicionado", "Café da manhã buffet", "Restaurante e bar", "Spa, sauna e banho turco", "Academia", "Wi-Fi gratuito", "Recepção 24h", "Próximo ao metrô de Taksim"],
+    img: radissonMerterAsset.url,
+    fotos: [radissonMerterAsset.url],
+    resumo: "Radisson Hotel Istanbul Merter, hospedagem prevista em Istambul para a viagem da família Singer Pereira.",
+    comodidades: [],
   },
   {
     nome: "Ramada by Wyndham Capadócia",
@@ -135,7 +134,7 @@ function HotelCard({ h }: { h: (typeof hoteis)[number] }) {
               ))}
             </div>
             <p className="text-sm font-light leading-relaxed text-off-white/80">{h.resumo}</p>
-            <div>
+            {h.comodidades.length > 0 && <div>
               <div className="text-[0.6rem] uppercase tracking-[0.4em] text-gold-soft">O que o hotel oferece</div>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {h.comodidades.map((c) => (
@@ -144,7 +143,7 @@ function HotelCard({ h }: { h: (typeof hoteis)[number] }) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div>}
             <p className="text-[0.65rem] text-off-white/40">Imagens ilustrativas · hotéis previstos ou similares, conforme operadora.</p>
           </DialogContent>
         </Dialog>
