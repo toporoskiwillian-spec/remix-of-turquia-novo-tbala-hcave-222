@@ -23,7 +23,7 @@ import { roteiroCompleto } from "@/lib/roteiro-completo";
 import aviaoImg from "@/assets/proposta/aviao.jpg";
 import logoAsset from "@/assets/proposta/logo-cvc.jpeg.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
-import customerAsset from "@/assets/proposta/customer.jpg.asset.json";
+import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
 
 import heroImg from "@/assets/turquia/hero-turquia.jpg";
@@ -703,21 +703,21 @@ function Seguro() {
           <motion.div {...fadeUp}>
             <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Seguro Viagem</span>
             <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
-              Inter Prime<br />
-              <em className="text-gold-gradient bg-clip-text animate-shimmer">250K.</em>
+              Assist Card<br />
+              <em className="text-gold-gradient bg-clip-text animate-shimmer">Inter Plus 150K.</em>
             </h2>
             <div className="mt-8 space-y-2 text-sm font-light text-off-white/80">
               <div className="flex items-center gap-3">
                 <span className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft w-16">Início</span>
-                <span>segunda-feira, 01/mar/2027</span>
+                <span>segunda-feira, 16/nov/2026</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft w-16">Fim</span>
-                <span>quinta-feira, 11/mar/2027</span>
+                <span>sexta-feira, 27/nov/2026</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft w-16">Cobertura</span>
-                <span>2 adultos · 10 diárias</span>
+                <span>4 adultos · 12 diárias</span>
               </div>
             </div>
           </motion.div>
@@ -752,7 +752,7 @@ function Includes() {
       "Ingressos aos lugares de interesse do itinerário",
       "Gorjetas para guia, motoristas e afins",
       "Taxas hoteleiras incluídas",
-      "Seguro Viagem Inter Prime 250K",
+      "Seguro Viagem Assist Card Inter Plus 150K",
       "Assistência telefônica 24h",
     ]},
     { t: "Opção SI (Super Incluído)", items: [
