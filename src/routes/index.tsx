@@ -13,6 +13,9 @@ import {
   MessageCircle,
   ChevronRight,
   BookOpen,
+  MapPin,
+  Mail,
+  Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
@@ -25,6 +28,10 @@ import premiumBanner from "@/assets/cvc-premium-banner.png.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
+import willAsset from "@/assets/equipe/Socio_Diretor_Will_Toporoski.jpeg.asset.json";
+import brunaAsset from "@/assets/equipe/Socia_diretora_Bruna_Toporoski.jpeg.asset.json";
+import otavioAsset from "@/assets/equipe/Customer_Experiences_Otavio.jpeg.asset.json";
+import luizAsset from "@/assets/equipe/Consultor_de_Experiencias_Luiz.jpeg.asset.json";
 
 import heroImg from "@/assets/turquia/hero-turquia.jpg";
 import istambulImg from "@/assets/turquia/istambul.jpg";
@@ -158,6 +165,7 @@ function TurquiaLanding() {
       <Budget />
       <Includes />
       <FinaleReveal />
+      <Equipe />
       <Footer />
       <FloatingWa />
     </main>
@@ -267,33 +275,34 @@ function Hero() {
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-ink)]/70 via-transparent to-[color:var(--cvc-ink)]" />
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 md:px-12 md:pb-32">
-        <motion.div {...fadeUp} className="mb-6 flex items-center gap-4">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-40 pt-32 md:px-12 md:pb-44">
+        <motion.div {...fadeUp} className="mb-5 flex items-center gap-4">
           <span className="h-px w-10 bg-gold-soft" />
           <span className="text-[10px] uppercase tracking-[0.35em] text-gold-soft md:text-xs">
             Maior Viagens de Franquia do Brasil · Referência Internacional
           </span>
         </motion.div>
-        <motion.div {...fadeUp} className="mb-8 font-display leading-[1.05]">
-          <div className="text-[4.5rem] font-normal text-off-white md:text-[9rem]">Super</div>
-          <div className="text-[4.5rem] italic text-gold-gradient animate-shimmer bg-clip-text md:text-[9rem]">Turquia</div>
+        <motion.div {...fadeUp} className="mb-2 font-display leading-[1.1]">
+          <span className="text-3xl font-normal text-off-white md:text-5xl">Super </span>
+          <span className="text-3xl italic text-gold-gradient animate-shimmer bg-clip-text md:text-5xl">Turquia</span>
         </motion.div>
-        <motion.h1
-          {...fadeUp}
-          className="max-w-4xl font-display text-[1.75rem] font-light leading-[1.1] text-off-white md:text-[3rem]"
-        >
-          Dirlene e Família{" "}
-          <em className="not-italic text-gold-gradient animate-shimmer bg-clip-text">Singer Pereira</em>
-          <br />
-          <span className="text-off-white/85 italic font-light">entre Istambul e a magia da Capadócia.</span>
+        <motion.h1 {...fadeUp} className="max-w-5xl">
+          <span className="block text-[11px] uppercase tracking-[0.4em] text-off-white/80 md:text-sm">Dirlene e Família</span>
+          <span
+            className="block py-2 text-[4rem] leading-[1.15] text-gold-gradient animate-shimmer bg-clip-text md:text-[8.5rem]"
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
+            Singer Pereira
+          </span>
+          <span className="mt-2 block font-display text-2xl font-light italic text-off-white md:text-4xl">
+            entre Istambul e a magia da Capadócia.
+          </span>
         </motion.h1>
-        <motion.p
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.2 }}
-          className="mt-8 max-w-xl text-base font-light leading-relaxed text-off-white/80 md:text-lg"
-        >
-          Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.
-        </motion.p>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 z-20 border-y border-gold-soft/40 bg-[color:var(--cvc-ink)]/70 backdrop-blur-sm">
+        <p className="group cursor-default px-6 py-6 text-center font-display text-lg italic text-gold-soft transition-all duration-500 hover:text-[#f5d76e] hover:[text-shadow:0_0_18px_rgba(245,205,85,0.9),0_0_40px_rgba(245,205,85,0.6)] md:px-48 md:text-2xl">
+          Cada detalhe pensado em você e curado só para vocês pela CVC Park Shopping Boulevard
+        </p>
       </div>
     </section>
   );
@@ -856,48 +865,107 @@ function FinaleReveal() {
   );
 }
 
+/* EQUIPE */
+const equipe = {
+  diretores: [
+    { nome: "Will Toporoski", cargo: "Sócio Diretor", desc: "Desenha roteiros internacionais sob medida há anos.", img: willAsset.url },
+    { nome: "Bruna Ynel", cargo: "Sócia Diretora", desc: "Curadoria de experiências e hotéis com olhar de detalhe.", img: brunaAsset.url },
+  ],
+  consultores: [
+    { nome: "Otávio", cargo: "Consultor de Experiências", desc: "Acompanha cada viagem da reserva ao retorno.", img: otavioAsset.url },
+    { nome: "Luiz", cargo: "Consultor de Experiências", desc: "Planejamento de circuitos e pacotes personalizados.", img: luizAsset.url },
+  ],
+};
+
+function PessoaCard({ p }: { p: { nome: string; cargo: string; desc: string; img: string } }) {
+  return (
+    <div className="group overflow-hidden rounded-lg border border-border bg-[color:var(--cvc-bg)] transition hover:border-gold-soft">
+      <div className="aspect-[4/5] overflow-hidden">
+        <img src={p.img} alt={`${p.nome} — ${p.cargo}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      </div>
+      <div className="p-5">
+        <h3 className="font-display text-lg text-off-white">{p.nome}</h3>
+        <div className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-gold-soft">{p.cargo}</div>
+        <p className="mt-3 text-sm font-light text-off-white/65">{p.desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function Equipe() {
+  return (
+    <section id="equipe" className="bg-[color:var(--cvc-ink)] py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <motion.div {...fadeUp} className="max-w-3xl">
+          <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Quem cuida da sua viagem</span>
+          <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
+            Equipe <em className="text-gold-gradient bg-clip-text animate-shimmer">CVC Curitiba</em>
+          </h2>
+          <p className="mt-6 font-display text-lg italic leading-relaxed text-off-white/80 md:text-xl">
+            Estão à frente da empresa os diretores <span className="text-gold-soft">William</span> e <span className="text-gold-soft">Bruna</span>, e no comando operacional os consultores <span className="text-gold-soft">Otávio</span> e <span className="text-gold-soft">Luiz</span>, consultores de experiência da CVC Park Shopping Boulevard.
+          </p>
+        </motion.div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-[2fr_1fr_1fr]">
+          <motion.div {...fadeUp} className="rounded-xl border border-gold-soft/50 p-5 shadow-[0_0_40px_-10px_rgba(212,175,55,0.35)]">
+            <div className="mb-5 text-center text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Quem está na frente de tudo</div>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {equipe.diretores.map((p) => <PessoaCard key={p.nome} p={p} />)}
+            </div>
+          </motion.div>
+          {equipe.consultores.map((p) => (
+            <motion.div key={p.nome} {...fadeUp} className="lg:pt-[3.25rem]">
+              <PessoaCard p={p} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* FOOTER */
+const unidadesInfo = [
+  { ...lojas[0], titulo: "CVC Itupava", destaque: "Shopping Mall", endereco: "Itupava Shopping Mall · Hugo Lange · Curitiba/PR", mapa: "Itupava Shopping Mall Curitiba" },
+  { ...lojas[1], titulo: "CVC Park Shopping", destaque: "Boulevard", endereco: "BR-116, 16303, Loja 1004 · Xaxim · Curitiba/PR", mapa: "Shopping Boulevard Curitiba Linha Verde 16303" },
+];
+
 function Footer() {
   return (
     <footer className="bg-[color:var(--cvc-ink)] border-t border-border py-16 text-off-white/75">
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="flex flex-col items-start gap-6">
-          <div className="font-display text-2xl tracking-[0.2em] text-off-white">CVC · ITUPAVA & PARK SHOPPING BOULEVARD</div>
-          <p className="max-w-md text-sm font-light leading-relaxed">
-            Curadoria de viagens internacionais. Parte da maior rede de viagens do Brasil — 1.500 lojas.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-10 md:grid-cols-2">
-          {lojas.map((l) => (
-            <div key={l.nome} className="border-t border-border pt-8">
-              <div className="text-[0.65rem] uppercase tracking-[0.4em] text-gold-soft">Unidade</div>
-              <h3 className="mt-3 font-display text-xl text-off-white">{l.nome}</h3>
-              <p className="mt-1 text-sm font-light text-off-white/70">{l.endereco}</p>
-              <p className="text-sm font-light text-off-white/70">{l.bairro}</p>
-              <div className="mt-4 space-y-1 text-sm font-light">
-                <p>
-                  <span className="text-off-white/40">E-mail · </span>
-                  <a href={`mailto:${l.email}`} className="text-off-white hover:text-gold-soft">{l.email}</a>
-                </p>
-                <p>
-                  <span className="text-off-white/40">Instagram · </span>
-                  <a href={`https://instagram.com/${l.insta.replace("@", "")}`} target="_blank" rel="noreferrer" className="text-off-white hover:text-gold-soft">{l.insta}</a>
-                </p>
-              </div>
+      <div className="mx-auto max-w-7xl space-y-8 px-6 md:px-12">
+        {unidadesInfo.map((l) => (
+          <div key={l.wa} className="grid overflow-hidden rounded-xl border border-border bg-[color:var(--cvc-bg)] md:grid-cols-2">
+            <div className="p-8 md:p-10">
+              <div className="text-[0.65rem] uppercase tracking-[0.4em] text-gold-soft">Nossa loja</div>
+              <h3 className="mt-3 font-display text-3xl text-off-white md:text-4xl">
+                {l.titulo} <em className="text-gold-gradient bg-clip-text animate-shimmer">{l.destaque}</em>
+              </h3>
+              <ul className="mt-6 space-y-3 text-sm">
+                <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-gold-soft" /> {l.endereco}</li>
+                <li className="flex items-center gap-3"><MessageCircle className="h-4 w-4 text-gold-soft" /> {l.waDisplay}</li>
+                <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold-soft" /><a href={`mailto:${l.email}`} className="hover:text-gold-soft">{l.email}</a></li>
+                <li className="flex items-center gap-3"><Instagram className="h-4 w-4 text-gold-soft" /><a href={`https://instagram.com/${l.insta.replace("@", "")}`} target="_blank" rel="noreferrer" className="hover:text-gold-soft">{l.insta}</a></li>
+              </ul>
               <a
                 href={`https://wa.me/${l.wa}?text=${WA_MSG}`}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-2 bg-[color:var(--cvc-silver)] px-5 py-3 text-[0.65rem] uppercase tracking-[0.3em] text-black transition hover:bg-off-white"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#d9b43c] px-7 py-3.5 text-sm font-medium text-black shadow-[0_6px_24px_-6px_rgba(217,180,60,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f0cc55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)]"
               >
-                <MessageCircle className="h-4 w-4" /> WhatsApp {l.waDisplay}
+                <MessageCircle className="h-4 w-4" /> Chamar no WhatsApp
               </a>
             </div>
-          ))}
-        </div>
+            <iframe
+              title={`Mapa ${l.titulo} ${l.destaque}`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(l.mapa)}&output=embed`}
+              loading="lazy"
+              className="h-72 w-full border-0 md:h-full [filter:invert(90%)_hue-rotate(180deg)_grayscale(60%)]"
+            />
+          </div>
+        ))}
 
-        <div className="mt-12 border-t border-border pt-6 text-[0.65rem] uppercase tracking-[0.3em] text-off-white/40">
+        <div className="border-t border-border pt-6 text-[0.65rem] uppercase tracking-[0.3em] text-off-white/40">
           Preços e condições sujeitos à disponibilidade · Imagens meramente ilustrativas
         </div>
       </div>
