@@ -81,7 +81,13 @@
 
   --gradient-gold: linear-gradient(135deg, #F8F2D8 0%, #D4AF37 50%, #9C7A1E 100%);
   --shadow-luxury: 0 30px 80px -40px rgba(0, 0, 0, 0.8);
+  --hotel-button-gold: #d9b43c;
+  --hotel-button-highlight: #f5cd55;
+  --hotel-button-glow: 0 0 40px 6px rgba(245, 205, 85, 0.75);
 }
+
+.hotel-details-button { background: var(--hotel-button-gold); color: var(--cvc-ink); }
+.hotel-details-button:hover { background: var(--hotel-button-highlight); box-shadow: var(--hotel-button-glow); }
 
 @layer base {
   * { border-color: var(--color-border); }

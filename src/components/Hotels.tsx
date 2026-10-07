@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, MapPin } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { MapPin } from "lucide-react";
+import { HotelDetails } from "@/components/HotelDetails";
 
 import radissonMerterAsset from "@/assets/hotels/radisson-istanbul-merter.asset.json";
 import capadociaImg from "@/assets/hotels/capadocia.jpg";
@@ -19,7 +19,7 @@ const hoteis = [
     nome: "Radisson Hotel Istanbul Merter",
     cidade: "Istambul",
     img: radissonMerterAsset.url,
-    fotos: [radissonMerterAsset.url],
+    fotos: [{ src: radissonMerterAsset.url, caption: "Radisson Hotel Istanbul Merter · fachada confirmada" }],
     resumo: "Radisson Hotel Istanbul Merter, hospedagem prevista em Istambul para a viagem da família Singer Pereira.",
     comodidades: [],
   },
@@ -27,7 +27,7 @@ const hoteis = [
     nome: "Ramada by Wyndham Capadócia",
     cidade: "Capadócia",
     img: capadociaImg,
-    fotos: [capadociaImg, balaoImg, cavernaImg],
+    fotos: [{ src: capadociaImg, caption: "Hospedagem na Capadócia · foto principal" }, { src: balaoImg, caption: "Capadócia · balões" }, { src: cavernaImg, caption: "Capadócia · hospedagem em caverna" }],
     resumo: "Base confortável entre as paisagens lunares da Capadócia, ideal para descansar depois dos vales, aldeias trogloditas e do amanhecer de balões.",
     comodidades: ["Piscinas interna e externa", "Spa com hamam e sauna", "Restaurante com cozinha turca e internacional", "Jantar incluso no circuito", "Academia", "Wi-Fi gratuito", "Estacionamento", "Vista para a região de Nevşehir"],
   },
@@ -35,7 +35,7 @@ const hoteis = [
     nome: "Colossae Thermal",
     cidade: "Pamukkale",
     img: pamukkaleImg,
-    fotos: [pamukkaleImg, pamukkaleCity],
+    fotos: [{ src: pamukkaleImg, caption: "Colossae Thermal · foto principal" }, { src: pamukkaleCity, caption: "Pamukkale · paisagem do destino" }],
     resumo: "Resort termal em Karahayıt, junto às águas minerais quentes de Pamukkale — uma pausa de bem-estar perto do Castelo de Algodão.",
     comodidades: ["Piscinas termais internas e externas", "Spa completo e banho turco", "Jardins amplos", "Restaurante buffet com jantar incluso", "Bares", "Wi-Fi", "Próximo a Hierápolis"],
   },
@@ -43,7 +43,7 @@ const hoteis = [
     nome: "Radisson Izmir Aliağa",
     cidade: "Izmir",
     img: izmirImg,
-    fotos: [izmirImg, efesoImg],
+    fotos: [{ src: izmirImg, caption: "Hospedagem em Izmir · foto principal" }, { src: efesoImg, caption: "Éfeso · sítio histórico" }],
     resumo: "Padrão internacional Radisson na costa do Mar Egeu, ponto de partida para Éfeso e a Casa da Virgem Maria.",
     comodidades: ["Quartos amplos com vista", "Piscina", "Restaurante e lobby bar", "Academia", "Wi-Fi gratuito", "Room service", "Recepção 24h"],
   },
@@ -51,7 +51,7 @@ const hoteis = [
     nome: "New Park Ankara",
     cidade: "Ankara",
     img: ankaraImg,
-    fotos: [ankaraImg, yhtImg],
+    fotos: [{ src: ankaraImg, caption: "New Park Ankara · foto principal" }, { src: yhtImg, caption: "Turquia · trem de alta velocidade YHT" }],
     resumo: "Hotel bem localizado na capital da Turquia, prático para a visita ao Mausoléu de Atatürk e ao Castelo de Ancara antes do trem de alta velocidade.",
     comodidades: ["Quartos climatizados", "Café da manhã e jantar inclusos", "Restaurante", "Wi-Fi gratuito", "Recepção 24h", "Localização central"],
   },
@@ -59,7 +59,7 @@ const hoteis = [
     nome: "Oytun Park Hotel Çanakkale",
     cidade: "Çanakkale",
     img: canakkaleImg,
-    fotos: [canakkaleImg],
+    fotos: [{ src: canakkaleImg, caption: "Hospedagem em Çanakkale · foto principal" }],
     resumo: "Hospedagem acolhedora na região do Estreito de Dardanelos, próxima ao calçadão à beira-mar e aos sítios históricos de Troia e Galípoli.",
     comodidades: ["Quartos confortáveis", "Café da manhã", "Restaurante", "Wi-Fi gratuito", "Recepção 24h", "Perto do calçadão de Çanakkale"],
   },
@@ -117,36 +117,7 @@ function HotelCard({ h }: { h: (typeof hoteis)[number] }) {
           <MapPin className="h-3 w-3" /> {h.cidade} · Turquia
         </div>
         <h3 className="mt-2 font-display text-2xl text-off-white">{h.nome}</h3>
-        <Dialog>
-          <DialogTrigger asChild>
-            <button className="mt-5 rounded-full bg-[#d9b43c] px-7 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-[#f5cd55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)]">
-              Detalhes
-            </button>
-          </DialogTrigger>
-          <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto bg-[color:var(--cvc-ink)] text-off-white border-border">
-            <DialogHeader>
-              <span className="text-[0.6rem] uppercase tracking-[0.4em] text-gold-soft">{h.cidade} · Turquia</span>
-              <DialogTitle className="font-display text-3xl text-off-white">{h.nome}</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {h.fotos.map((f, i) => (
-                <img key={i} src={f} alt={`${h.nome} foto ${i + 1}`} loading="lazy" className={`w-full object-cover ${i === 0 ? "sm:col-span-2 h-64" : "h-44"}`} />
-              ))}
-            </div>
-            <p className="text-sm font-light leading-relaxed text-off-white/80">{h.resumo}</p>
-            {h.comodidades.length > 0 && <div>
-              <div className="text-[0.6rem] uppercase tracking-[0.4em] text-gold-soft">O que o hotel oferece</div>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {h.comodidades.map((c) => (
-                  <li key={c} className="flex items-start gap-2 text-sm font-light text-off-white/85">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold-soft" /> {c}
-                  </li>
-                ))}
-              </ul>
-            </div>}
-            <p className="text-[0.65rem] text-off-white/40">Imagens ilustrativas · hotéis previstos ou similares, conforme operadora.</p>
-          </DialogContent>
-        </Dialog>
+        <HotelDetails hotel={h} />
       </div>
     </div>
   );
