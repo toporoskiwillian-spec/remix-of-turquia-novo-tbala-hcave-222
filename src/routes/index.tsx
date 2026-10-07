@@ -28,7 +28,7 @@ import premiumBanner from "@/assets/cvc-premium-banner.png.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
-import willAsset from "@/assets/equipe/Socio_Diretor_Will_Toporoski.jpeg.asset.json";
+import willAsset from "@/assets/equipe/Socio_Diretor_Will_Toporoski_v2.jpeg.asset.json";
 import brunaAsset from "@/assets/equipe/Socia_diretora_Bruna_Toporoski.jpeg.asset.json";
 import otavioAsset from "@/assets/equipe/Customer_Experiences_Otavio.jpeg.asset.json";
 import luizAsset from "@/assets/equipe/Consultor_de_Experiencias_Luiz.jpeg.asset.json";
@@ -160,7 +160,6 @@ function TurquiaLanding() {
       <Bento />
       <CvcDifferentials />
       <Reviews />
-      <Seguro />
       <Budget />
       <Equipe />
       <FinaleReveal />
@@ -193,11 +192,11 @@ function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-12">
         <a href="#top" className="shrink-0">
-          <img src={premiumBanner.url} alt="CVC Premium · Itupava Shopping Mall e Park Shopping Boulevard" className="h-9 w-auto rounded-md md:h-12" />
+          <img src={premiumBanner.url} alt="CVC Premium · Itupava Shopping Mall e Park Shopping Boulevard" className="h-11 w-auto rounded-md md:h-[3.6rem]" />
         </a>
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map(([l, h]) => (
-            <a key={h} href={h} className="text-xs uppercase tracking-[0.25em] text-off-white/80 transition hover:text-gold-soft">
+            <a key={h} href={h} className="text-xs font-bold uppercase tracking-[0.25em] text-gold-gradient bg-clip-text transition hover:drop-shadow-[0_0_10px_rgba(245,205,85,0.9)]">
               {l}
             </a>
           ))}
@@ -274,10 +273,9 @@ function Hero() {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-ink)]/70 via-transparent to-[color:var(--cvc-ink)]" />
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-40 pt-32 md:px-12 md:pb-44">
-        <motion.div {...fadeUp} className="mb-5 flex items-center gap-4">
-          <span className="h-px w-10 bg-gold-soft" />
-          <span className="text-[10px] uppercase tracking-[0.35em] text-gold-soft md:text-xs">
-            Maior Viagens de Franquia do Brasil · Referência Internacional
+        <motion.div {...fadeUp} className="mb-5 flex">
+          <span className="rounded-full border border-[#d9b43c] bg-[color:var(--cvc-ink)]/40 px-5 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gold-soft backdrop-blur-sm md:text-xs">
+            Maior franquia de viagens do Brasil - referência internacional
           </span>
         </motion.div>
         <motion.div {...fadeUp} className="mb-2 font-display leading-[1.1]">
@@ -614,6 +612,17 @@ const detalhesViagem: { t: string; icon: string; items: string[] }[] = [
     "Passeios opcionais, como balão na Capadócia e Noite Turca (podem ser reservados com nossa equipe)",
     "Excesso de bagagem além da franquia aérea",
   ]},
+  { t: "Seguro Viagem", icon: "🛡️", items: [
+    "Assist Card Inter Plus 150K · 4 adultos",
+    "Vigência: 16/nov/2026 a 27/nov/2026 (12 diárias)",
+    "Assistência médica de até USD 150.000 por evento",
+    "Sala VIP nos aeroportos GRU · BEL · REC · GIG · POA · FOR",
+    "Cancelamento de viagem por múltiplos motivos",
+    "Traslado de familiar e hospedagem de acompanhante",
+    "Prorrogação de estadia e retorno antecipado",
+    "Roubo, furto ou extravio de documentos e localização de bagagens",
+    "Assistência legal e assistência 24h em português",
+  ]},
   { t: "Documentação", icon: "📄", items: [
     "Passaporte brasileiro válido por no mínimo 6 meses após o retorno",
     "Brasileiros não precisam de visto para turismo de até 90 dias na Turquia",
@@ -939,7 +948,7 @@ function PessoaCard({ p }: { p: { nome: string; cargo: string; desc: string; img
         <img src={p.img} alt={`${p.nome} — ${p.cargo}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
       </div>
       <div className="p-5">
-        <h3 className="font-display text-lg text-off-white">{p.nome}</h3>
+        <h3 className="inline-block border-b border-[#d9b43c]/70 pb-1 font-display text-xl font-semibold text-gold-gradient bg-clip-text animate-shimmer drop-shadow-[0_0_8px_rgba(245,205,85,0.35)]">{p.nome}</h3>
         <div className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-gold-soft">{p.cargo}</div>
         <p className="mt-3 text-sm font-light text-off-white/65">{p.desc}</p>
       </div>
