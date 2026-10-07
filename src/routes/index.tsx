@@ -21,7 +21,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Hotels } from "@/components/Hotels";
 import { roteiroCompleto } from "@/lib/roteiro-completo";
 import aviaoImg from "@/assets/proposta/aviao.jpg";
-import logoAsset from "@/assets/proposta/logo-cvc.jpeg.asset.json";
 import premiumBanner from "@/assets/cvc-premium-banner.png.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
