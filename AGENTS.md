@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Hotel photo galleries use Embla inside an accessible full-viewport Radix dialog; this provides reliable touch gestures, keyboard navigation, and focus restoration without custom gesture parsing.
+- Store a caption alongside each hotel photo URL so thumbnails, alternative text, and full-screen captions remain consistent.
