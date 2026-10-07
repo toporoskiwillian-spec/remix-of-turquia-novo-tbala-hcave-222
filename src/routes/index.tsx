@@ -501,7 +501,7 @@ function CategoryIcons() {
 function CvcDifferentials() {
   const items = [
     { n: "01", img: curadoriaAsset.url, t: "Curadoria Personalizada", d: "Pacotes desenhados no estilo do cliente, com seleção manual de hotéis, voos e experiências. Cada detalhe pensado para você." },
-    { n: "02", img: customerAsset.url, t: "Customer Experience", d: "Consultor dedicado após a compra: conferência de documentos, vacinas por país, check-in pela equipe, acompanhamento até o retorno." },
+    { n: "02", img: customerImg, t: "Customer Experience", d: "Consultor dedicado após a compra: conferência de documentos, vacinas por país, check-in pela equipe, acompanhamento até o retorno." },
     { n: "03", img: transferAsset.url, t: "Transfer Executivo", d: "Casa ↔ aeroporto incluso em todos os roteiros internacionais. Conforto e pontualidade do primeiro ao último minuto." },
   ];
   return (
