@@ -158,14 +158,12 @@ function TurquiaLanding() {
       <Voos />
       <VideoFeature />
       <Bento />
-      <CategoryIcons />
       <CvcDifferentials />
       <Reviews />
       <Seguro />
       <Budget />
-      <Includes />
-      <FinaleReveal />
       <Equipe />
+      <FinaleReveal />
       <Footer />
       <FloatingWa />
     </main>
@@ -597,6 +595,40 @@ function Reviews() {
   );
 }
 
+const detalhesViagem: { t: string; icon: string; items: string[] }[] = [
+  { t: "O que inclui", icon: "✓", items: [
+    "Voos diretos Turkish Airlines GRU ⇄ IST (TK 216 / TK 215) com 1 item pessoal + 1 bagagem de mão 8 kg",
+    "9 noites nos hotéis indicados, incluindo Cave Hotel na Capadócia, com café da manhã",
+    "Voo doméstico Istambul → Izmir",
+    "Trem de Alta Velocidade YHT Ancara → Istambul",
+    "Traslados de chegada e saída do aeroporto IST",
+    "Visitas a Istambul, Éfeso, Pamukkale, Capadócia e Ancara com guia acompanhante",
+    "Ingressos aos lugares de interesse do roteiro",
+    "Gorjetas para guia e motoristas e taxas hoteleiras",
+    "Seguro Assist Card Inter Plus 150K e assistência 24h",
+  ]},
+  { t: "Não inclui", icon: "✕", items: [
+    "Traslado de/para o Aeroporto Sabiha Gökçen (SAW) — mediante suplemento",
+    "Bebidas e refeições não descritas no roteiro",
+    "Despesas pessoais (lavanderia, frigobar, compras)",
+    "Passeios opcionais, como balão na Capadócia e Noite Turca (podem ser reservados com nossa equipe)",
+    "Excesso de bagagem além da franquia aérea",
+  ]},
+  { t: "Documentação", icon: "📄", items: [
+    "Passaporte brasileiro válido por no mínimo 6 meses após o retorno",
+    "Brasileiros não precisam de visto para turismo de até 90 dias na Turquia",
+    "Apólice do seguro Assist Card emitida pela CVC",
+    "Bilhetes e vouchers enviados pela equipe CVC antes do embarque",
+  ]},
+  { t: "Dicas", icon: "💡", items: [
+    "Moeda: Lira Turca (TRY) · cartões internacionais, USD e EUR amplamente aceitos",
+    "Novembro: outono, dias amenos e noites frias na Capadócia e Ancara — roupas em camadas",
+    "Fuso: GMT+3 (6h à frente de Curitiba)",
+    "Tomadas padrão europeu tipo C/F, 220V",
+    "Em mesquitas, cobrir ombros e joelhos; mulheres levam um lenço para a cabeça",
+  ]},
+];
+
 /* 09 — BUDGET */
 function Budget() {
   return (
@@ -624,7 +656,30 @@ function Budget() {
             </div>
           </div>
 
-          <WaChooser label="Reservar via WhatsApp" className="mt-10 px-8 py-4" />
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <WaChooser label="Reservar via WhatsApp" className="px-8 py-4" />
+            {detalhesViagem.map((d) => (
+              <Dialog key={d.t}>
+                <DialogTrigger asChild>
+                  <button className="rounded-full bg-[#d9b43c] px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:bg-[#f5cd55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)]">
+                    {d.icon} {d.t}
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto border-border bg-[color:var(--cvc-ink)] text-off-white">
+                  <DialogHeader>
+                    <DialogTitle className="font-display text-3xl font-light text-off-white">
+                      {d.icon} <span className="text-gold-soft">{d.t}</span>
+                    </DialogTitle>
+                  </DialogHeader>
+                  <ul className="mt-4 space-y-4 text-left text-sm font-light text-off-white/85">
+                    {d.items.map((x) => (
+                      <li key={x} className="flex gap-3"><span className="mt-2 h-px w-4 flex-shrink-0 bg-gold-soft" />{x}</li>
+                    ))}
+                  </ul>
+                </DialogContent>
+              </Dialog>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
