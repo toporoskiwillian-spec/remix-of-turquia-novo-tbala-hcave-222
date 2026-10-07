@@ -228,7 +228,7 @@ function WaChooser({ label, className = "" }: { label: string; className?: strin
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button className={`inline-flex items-center justify-center gap-2 bg-[color:var(--cvc-silver)] text-[0.65rem] uppercase tracking-[0.3em] text-black transition hover:bg-off-white ${className}`}>
+        <button className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#d9b43c] text-sm font-medium text-black shadow-[0_6px_24px_-6px_rgba(217,180,60,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f0cc55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)] ${className}`}>
           <MessageCircle className="h-4 w-4" /> {label}
         </button>
       </PopoverTrigger>
@@ -821,29 +821,29 @@ function FinaleReveal() {
   return (
     <section className="relative bg-[color:var(--cvc-ink)] py-32 md:py-48">
       <div className="mx-auto max-w-4xl px-6 text-center md:px-12">
-        <motion.div {...fadeUp}>
-          <p className="font-display text-3xl font-light leading-tight text-off-white md:text-5xl">
-            Turquia, uma viagem para guardar{" "}
-            <em className="text-gold-gradient bg-clip-text animate-shimmer">no coração pela vida inteira!</em>
-          </p>
-          <p className="mx-auto mt-6 max-w-xl text-sm font-light text-off-white/70 md:text-base">
-            Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.
-          </p>
-        </motion.div>
         {!revealed ? (
-          <div className="mt-10 flex flex-col items-center">
+          <div className="flex flex-col items-center">
+            <span className="mb-10 text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft/80">Uma mensagem especial para vocês</span>
             <button
               onClick={() => setRevealed(true)}
               aria-label="Revelar mensagem final"
-              className="font-display text-9xl text-off-white/20 transition hover:text-gold-soft md:text-[12rem]"
+              className="group flex h-40 w-40 items-center justify-center rounded-full border border-[color:var(--gold-soft,#d4af37)] bg-[color:var(--cvc-ink)] shadow-[0_0_30px_-8px_rgba(212,175,55,0.45)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_70px_6px_rgba(240,200,80,0.75)] md:h-44 md:w-44"
+              style={{ borderColor: "#c9a646" }}
             >
-              ?
+              <span className="font-display text-7xl leading-none text-gold-gradient bg-clip-text transition-all duration-500 group-hover:drop-shadow-[0_0_14px_rgba(255,215,100,0.95)] md:text-8xl">?</span>
             </button>
-            <span className="text-xs uppercase tracking-[0.4em] text-gold-soft">clique para ver</span>
+            <span className="mt-8 text-xs uppercase tracking-[0.4em] text-gold-soft">clique para ver</span>
           </div>
         ) : (
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="mt-14">
-            <p className="font-display text-2xl font-light italic leading-snug text-off-white md:text-4xl">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }}>
+            <p className="font-display text-3xl font-light leading-tight text-off-white md:text-5xl">
+              Turquia, uma viagem para guardar{" "}
+              <em className="text-gold-gradient bg-clip-text animate-shimmer">no coração pela vida inteira!</em>
+            </p>
+            <p className="mx-auto mt-6 max-w-xl text-sm font-light text-off-white/70 md:text-base">
+              Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.
+            </p>
+            <p className="mt-14 font-display text-2xl font-light italic leading-snug text-off-white md:text-4xl">
               "Uma experiência incrível, gerando algumas das mais inesquecíveis memórias da vida de Liliane e Família Singer Pereira.
               <br />
               <em className="text-gold-gradient bg-clip-text animate-shimmer">Obrigado pela confiança, já estamos ansiosos para a próxima aventura!</em>"
@@ -907,22 +907,9 @@ function Footer() {
 
 /* FLOATING WHATSAPP */
 function FloatingWa() {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 600);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  if (!show) return null;
   return (
-    <a
-      href={`https://wa.me/${lojas[0].wa}?text=${WA_MSG}`}
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Falar pelo WhatsApp"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--cvc-silver)] text-black shadow-xl transition hover:bg-off-white"
-    >
-      <MessageCircle className="h-6 w-6" />
-    </a>
+    <div className="fixed bottom-6 right-6 z-50">
+      <WaChooser label="Falar com um CVC" className="px-6 py-3.5" />
+    </div>
   );
 }
