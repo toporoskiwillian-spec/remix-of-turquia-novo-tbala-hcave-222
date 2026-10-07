@@ -926,8 +926,8 @@ function Equipe() {
 
 /* FOOTER */
 const unidadesInfo = [
-  { titulo: "CVC Itupava", destaque: "Shopping Mall", endereco: "Itupava Shopping Mall · Hugo Lange · Curitiba/PR", mapa: "Itupava Shopping Mall Curitiba", ...lojas[0] },
-  { titulo: "CVC Park Shopping", destaque: "Boulevard", endereco: "BR-116, 16303, Loja 1004 · Xaxim · Curitiba/PR", mapa: "Shopping Boulevard Curitiba Linha Verde 16303", ...lojas[1] },
+  { ...lojas[0], titulo: "CVC Itupava", destaque: "Shopping Mall", endereco: "Itupava Shopping Mall · Hugo Lange · Curitiba/PR", mapa: "Itupava Shopping Mall Curitiba" },
+  { ...lojas[1], titulo: "CVC Park Shopping", destaque: "Boulevard", endereco: "BR-116, 16303, Loja 1004 · Xaxim · Curitiba/PR", mapa: "Shopping Boulevard Curitiba Linha Verde 16303" },
 ];
 
 function Footer() {
