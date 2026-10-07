@@ -563,49 +563,38 @@ function Budget() {
             Valor <em className="text-gold-gradient bg-clip-text animate-shimmer">total.</em>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-sm font-light text-off-white/65">
-            Roteiro completo para 2 pessoas — voos, hospedagem, trem YHT, refeições, seguro e assistência 24h.
+            4 adultos · 2 quartos duplos categoria Premium — voos diretos, circuito Special Tours, trem YHT, refeições e seguro Assist Card.
           </p>
 
-          <div className="mt-12 border border-border bg-card p-10">
-            <div className="text-[0.6rem] uppercase tracking-[0.4em] text-off-white/50">Valor total · 2 pessoas</div>
+          <div className="mt-12 border border-border bg-card/80 backdrop-blur p-10">
+            <div className="text-[0.6rem] uppercase tracking-[0.4em] text-off-white/50">Valor total · 4 adultos</div>
             <div className="mt-4 font-display text-5xl font-light text-off-white md:text-7xl">
-              R$ <em className="not-italic text-gold-gradient bg-clip-text animate-shimmer">29.000,00</em>
+              R$ <em className="not-italic text-gold-gradient bg-clip-text animate-shimmer">56.084,30</em>
             </div>
-            <div className="mt-6 grid gap-4 text-sm font-light text-off-white/85 md:grid-cols-2">
-              <div className="border-t border-border pt-4">
-                <div className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft">Parcelado</div>
-                <div className="mt-2 font-display text-2xl text-off-white">10x sem juros</div>
-                <div className="mt-1 text-xs text-off-white/60">no cartão de crédito ou boleto</div>
-              </div>
-              <div className="border-t border-border pt-4">
-                <div className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft">À vista</div>
-                <div className="mt-2 font-display text-2xl text-off-white">R$ 26.500,00</div>
-                <div className="mt-1 text-xs text-off-white/60">desconto para pagamento à vista</div>
-              </div>
+            <div className="mt-2 text-sm font-light text-off-white/70">ou 10x sem juros de R$ 5.608,43</div>
+            <div className="mt-8 border border-gold-soft/60 p-6">
+              <div className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft">Valor promocional</div>
+              <div className="mt-2 font-display text-4xl text-off-white md:text-5xl">R$ 53.000,00</div>
+              <div className="mt-2 text-xs font-light text-off-white/70">desconto aplicado pela loja para pagamento à vista no Pix</div>
             </div>
           </div>
 
-          <a
-            href={`https://wa.me/${lojas[0].wa}?text=${msg}`}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-10 inline-flex items-center justify-center gap-2 bg-[color:var(--cvc-silver)] px-8 py-4 text-[0.7rem] uppercase tracking-[0.3em] text-black hover:bg-off-white"
-          >
-            <MessageCircle className="h-4 w-4" /> Reservar via WhatsApp
-          </a>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* 09b — VOOS */
 function Voos() {
   return (
-    <section className="bg-[color:var(--cvc-bg)] py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6 md:px-12">
+    <section className="relative overflow-hidden py-24 md:py-32">
+      <motion.img
+        src={aviaoImg}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        animate={{ scale: [1.05, 1.18, 1.05], x: ["0%", "-3%", "0%"] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-bg)] via-[color:var(--cvc-ink)]/60 to-[color:var(--cvc-bg)]" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-12">
         <motion.div {...fadeUp} className="mb-14 max-w-2xl">
-          <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Voos incluídos</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Voos diretos · Turkish Airlines</span>
           <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
             De Guarulhos a<br />
             <em className="text-gold-gradient bg-clip-text animate-shimmer">Istambul.</em>
@@ -788,23 +777,34 @@ function FinaleReveal() {
   return (
     <section className="relative bg-[color:var(--cvc-ink)] py-32 md:py-48">
       <div className="mx-auto max-w-4xl px-6 text-center md:px-12">
+        <motion.div {...fadeUp}>
+          <p className="font-display text-3xl font-light leading-tight text-off-white md:text-5xl">
+            Turquia, uma viagem para guardar{" "}
+            <em className="text-gold-gradient bg-clip-text animate-shimmer">no coração pela vida inteira!</em>
+          </p>
+          <p className="mx-auto mt-6 max-w-xl text-sm font-light text-off-white/70 md:text-base">
+            Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.
+          </p>
+        </motion.div>
         {!revealed ? (
-          <button
-            onClick={() => setRevealed(true)}
-            aria-label="Revelar mensagem final"
-            className="group font-display text-9xl text-off-white/15 transition hover:text-gold-soft md:text-[14rem]"
-          >
-            ?
-          </button>
+          <div className="mt-10 flex flex-col items-center">
+            <button
+              onClick={() => setRevealed(true)}
+              aria-label="Revelar mensagem final"
+              className="font-display text-9xl text-off-white/20 transition hover:text-gold-soft md:text-[12rem]"
+            >
+              ?
+            </button>
+            <span className="text-xs uppercase tracking-[0.4em] text-gold-soft">clique para ver</span>
+          </div>
         ) : (
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }}>
-            <p className="font-display text-3xl font-light italic leading-tight text-off-white md:text-5xl">
-              "A viagem começa quando você decide partir.<br />
-              <em className="text-gold-gradient bg-clip-text animate-shimmer">A gente cuida do resto.</em>"
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="mt-14">
+            <p className="font-display text-2xl font-light italic leading-snug text-off-white md:text-4xl">
+              "Uma experiência incrível, gerando algumas das mais inesquecíveis memórias da vida de Liliane e Família Singer Pereira.
+              <br />
+              <em className="text-gold-gradient bg-clip-text animate-shimmer">Obrigado pela confiança, já estamos ansiosos para a próxima aventura!</em>"
             </p>
-            <div className="mt-10 text-xs uppercase tracking-[0.4em] text-gold-soft">
-              Will Toporoski & Bruna Ynel
-            </div>
+            <div className="mt-10 text-xs uppercase tracking-[0.4em] text-gold-soft">CVC Park Shopping Boulevard</div>
           </motion.div>
         )}
       </div>
