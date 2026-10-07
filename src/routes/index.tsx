@@ -21,7 +21,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Hotels } from "@/components/Hotels";
 import { roteiroCompleto } from "@/lib/roteiro-completo";
 import aviaoImg from "@/assets/proposta/aviao.jpg";
-import logoAsset from "@/assets/proposta/logo-cvc.jpeg.asset.json";
+import premiumBanner from "@/assets/cvc-premium-banner.png.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
@@ -187,7 +187,7 @@ function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-12">
         <a href="#top" className="shrink-0">
-          <img src={logoAsset.url} alt="CVC Itupava Shopping Mall e Park Shopping Boulevard" className="h-10 w-auto rounded-full md:h-12" />
+          <img src={premiumBanner.url} alt="CVC Premium · Itupava Shopping Mall e Park Shopping Boulevard" className="h-9 w-auto rounded-md md:h-12" />
         </a>
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map(([l, h]) => (
@@ -268,9 +268,19 @@ function Hero() {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-ink)]/70 via-transparent to-[color:var(--cvc-ink)]" />
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 md:px-12 md:pb-32">
+        <motion.div {...fadeUp} className="mb-6 flex items-center gap-4">
+          <span className="h-px w-10 bg-gold-soft" />
+          <span className="text-[10px] uppercase tracking-[0.35em] text-gold-soft md:text-xs">
+            Maior Viagens de Franquia do Brasil · Referência Internacional
+          </span>
+        </motion.div>
+        <motion.div {...fadeUp} className="mb-8 font-display leading-[0.9]">
+          <div className="text-[4.5rem] font-normal text-off-white md:text-[9rem]">Super</div>
+          <div className="text-[4.5rem] italic text-gold-gradient animate-shimmer bg-clip-text md:text-[9rem]">Turquia</div>
+        </motion.div>
         <motion.h1
           {...fadeUp}
-          className="max-w-4xl font-display text-[2.5rem] font-light leading-[1.05] text-off-white md:text-[4.5rem]"
+          className="max-w-4xl font-display text-[1.75rem] font-light leading-[1.1] text-off-white md:text-[3rem]"
         >
           Dirlene e Família{" "}
           <em className="not-italic text-gold-gradient animate-shimmer bg-clip-text">Singer Pereira</em>
