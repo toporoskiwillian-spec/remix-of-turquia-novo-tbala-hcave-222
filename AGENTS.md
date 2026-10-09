@@ -11,3 +11,5 @@
 
 - Hotel photo galleries use Embla inside an accessible full-viewport Radix dialog; this provides reliable touch gestures, keyboard navigation, and focus restoration without custom gesture parsing.
 - Store a caption alongside each hotel photo URL so thumbnails, alternative text, and full-screen captions remain consistent.
+- Keep the Super Turquia offer in a shared browser-safe data module used by the price display and business-rule tests, so payment conditions stay consistent.
+- Derive itinerary cards and the complete itinerary dialog from one itinerary data source, so the displayed days cannot diverge.
