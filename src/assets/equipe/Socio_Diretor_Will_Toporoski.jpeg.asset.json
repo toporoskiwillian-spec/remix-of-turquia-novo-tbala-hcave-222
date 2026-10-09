@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "f15e28c0-21f3-4183-9698-f5d2d691e485",
-  "project_id": "4eeb3687-46b6-4743-bd89-98c6fec06baa",
-  "url": "/__l5e/assets-v1/f15e28c0-21f3-4183-9698-f5d2d691e485/Socio_Diretor_Will_Toporoski.jpeg",
-  "r2_key": "a/v1/4eeb3687-46b6-4743-bd89-98c6fec06baa/f15e28c0-21f3-4183-9698-f5d2d691e485/Socio_Diretor_Will_Toporoski.jpeg",
-  "original_filename": "Socio_Diretor_Will_Toporoski.jpeg",
-  "size": 69689,
   "content_type": "image/jpeg",
-  "created_at": "2026-10-07T07:59:29Z"
+  "created_at": "2026-10-07T07:59:29Z",
+  "original_filename": "Socio_Diretor_Will_Toporoski.jpeg",
+  "project_id": "f1befaaf-2199-4973-a2bc-3ab1f1077e91",
+  "r2_key": "a/v1/f1befaaf-2199-4973-a2bc-3ab1f1077e91/f15e28c0-21f3-4183-9698-f5d2d691e485/Socio_Diretor_Will_Toporoski.jpeg",
+  "size": 69689,
+  "url": "/__l5e/assets-v1/f15e28c0-21f3-4183-9698-f5d2d691e485/Socio_Diretor_Will_Toporoski.jpeg",
+  "version": 1
 }
