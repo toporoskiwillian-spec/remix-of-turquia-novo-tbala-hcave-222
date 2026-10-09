@@ -36,13 +36,13 @@ import luizAsset from "@/assets/equipe/Consultor_de_Experiencias_Luiz.jpeg.asset
 import heroImg from "@/assets/turquia/hero-turquia.jpg";
 import istambulImg from "@/assets/turquia/istambul.jpg";
 import baloaoImg from "@/assets/turquia/balao.jpg";
-import cavernaImg from "@/assets/turquia/hotel-caverna.jpg";
 import yhtImg from "@/assets/turquia/trem-yht.jpg";
 import pamukkaleImg from "@/assets/turquia/pamukkale.jpg";
 import efesoImg from "@/assets/turquia/efeso.jpg";
 
 import heroVideoAsset from "@/assets/turquia/hero-turquia.mp4.asset.json";
-import featureVideoAsset from "@/assets/turquia/feature-turquia.mp4.asset.json";
+import featureVideoAsset from "@/assets/turquia/istambul-bosforo-cinema.mp4.asset.json";
+import { ofertaTurquia, formatBRL } from "@/lib/oferta-turquia";
 import day1Video from "@/assets/turquia/day-1-istambul.mp4.asset.json";
 import day2Video from "@/assets/turquia/day-2-hagia.mp4.asset.json";
 import day3Video from "@/assets/turquia/day-3-yht.mp4.asset.json";
@@ -54,25 +54,25 @@ import day8Video from "@/assets/turquia/day-8-efeso.mp4.asset.json";
 import day9Video from "@/assets/turquia/day-9-kusadasi.mp4.asset.json";
 import day10Video from "@/assets/turquia/day-10-retorno.mp4.asset.json";
 
-const NOME_DO_ROTEIRO = "Super Turquia · Trem de Alta Velocidade & Hotel Caverna";
-const DATA_INICIO = "17/11/2026";
+const NOME_DO_ROTEIRO = "Super Turquia com trem-bala";
+const DATA_INICIO = "02/04/2027";
 const WA_MSG = encodeURIComponent(
-  `Olá! Sou da Família Singer Pereira e gostaria de falar sobre a nossa viagem para a Turquia.`,
+  `Olá! Gostaria de saber mais sobre a viagem Super Turquia com trem-bala.`,
 );
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Família Singer Pereira · Istambul e Capadócia | CVC Park Shopping Boulevard" },
+      { title: "Super Turquia com trem-bala | CVC Curitiba" },
       {
         name: "description",
         content:
-          "Proposta exclusiva para Dirlene e Família Singer Pereira: Turquia de 17 a 26/nov/2026 com voos diretos Turkish Airlines, Capadócia, Pamukkale, Éfeso e trem YHT.",
+          "Super Turquia de 2 a 10 de abril de 2027: Istambul, Ancara, Capadócia, Pamukkale e Éfeso com trem-bala e guia em português. R$ 29.000 para duas pessoas.",
       },
-      { property: "og:title", content: "Dirlene e Família Singer Pereira · Turquia" },
+      { property: "og:title", content: "Super Turquia com trem-bala | CVC Curitiba" },
       {
         property: "og:description",
-        content: "Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.",
+        content: "Descubra Istambul, a Capadócia e o trem-bala com a CVC Itupava e Park Shopping Boulevard.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -99,43 +99,25 @@ const fadeUp = {
   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
 };
 
-const itinerario = [
-  { dia: 1, data: "17/nov", cidade: "Istambul", uf: "Chegada · Turquia", horario: "Chegada", refeicao: "Livre", resumo: "Chegada à cidade onde Oriente e Ocidente se encontram sobre o Bósforo.", detalhes: ["Recepção no Aeroporto Internacional de Istambul (IST) com assistência em espanhol", "Traslado privativo ao hotel 5★", "Restante do dia livre para caminhar por Bizâncio / Constantinopla — Patrimônio UNESCO desde 1985"], img: istambulImg, video: day1Video.url },
-  { dia: 2, data: "18/nov", cidade: "Istambul Histórica", uf: "Santa Sofia · Topkapi · Mesquita Azul", horario: "Dia inteiro", refeicao: "Café · Almoço (opção SI)", resumo: "A pérola bizantina e o coração otomano em um único dia.", detalhes: ["Mesquita de Santa Sofia — auge da arte bizantina", "Palácio Topkapi e o harém dos sultões", "Mesquita Azul — 20.000 azulejos de Iznik e seus 6 minaretes", "Hipódromo Romano — Obelisco de Teodósio e Coluna Serpentina", "Grande Bazar — 4.000 lojas em labirinto coberto"], img: istambulImg, video: day2Video.url },
-  { dia: 3, data: "19/nov", cidade: "Istambul · Bósforo & Balat", uf: "Bairro Judeu · Bazar de Especiarias", horario: "Manhã", refeicao: "Café", resumo: "O bairro mais antigo da cidade e o estreito que separa dois continentes.", detalhes: ["Bairro judeu de Balat — casas coloridas e igreja ortodoxa", "Passeio de barco pelo Bósforo entre palácios e yalis de madeira", "Bazar Egípcio (Bazar das Especiarias) — construído no séc. XVII", "Opção SI: Mesquita de Süleymaniye, Palácio Beylerbeyi e colina de Çamlıca"], img: istambulImg, video: day1Video.url },
-  { dia: 4, data: "20/nov", cidade: "Izmir & Éfeso", uf: "Voo Istambul → Izmir · Costa Egeia", horario: "Dia inteiro", refeicao: "Café · Jantar", resumo: "A cidade greco-romana mais bem preservada da Ásia Menor.", detalhes: ["Traslado ao aeroporto e voo doméstico Istambul → Izmir", "Tour panorâmico por Izmir", "Éfeso — Teatro Romano, Biblioteca de Celso e Rua de Mármore (UNESCO, 2015)", "Casa da Virgem Maria — local de peregrinação", "Visita a atelier de couro do Egeu", "Jantar e hospedagem em Izmir/Kusadasi"], img: efesoImg, video: day8Video.url },
-  { dia: 5, data: "21/nov", cidade: "Pamukkale", uf: "Castelo de Algodão · Hierápolis", horario: "Dia inteiro", refeicao: "Café · Jantar", resumo: "Cachoeiras brancas de travertino esculpidas em séculos de águas termais.", detalhes: ["Viagem pela província de Denizli", "Hierápolis — cidade helenística em ruínas (UNESCO)", "Travertinos de Pamukkale — piscinas naturais de calcário", "Jantar e hospedagem em Pamukkale"], img: pamukkaleImg, video: day7Video.url },
-  { dia: 6, data: "22/nov", cidade: "Capadócia · Chegada", uf: "Rota da Seda · Paisagens Lunares", horario: "Dia inteiro", refeicao: "Café · Jantar", resumo: "As paisagens lunares esculpidas pela lava de dois vulcões.", detalhes: ["Parada no Kervansaray — maior estalagem da era seljúcida", "Antigo dormitório e estábulo dos mercadores da Rota da Seda", "Chegada às formações vulcânicas da Capadócia", "Check-in no Hotel Caverna", "Jantar e hospedagem"], img: cavernaImg, video: day6Video.url },
-  { dia: 7, data: "23/nov", cidade: "Capadócia", uf: "Göreme · Uçhisar · Balão (opção SI)", horario: "Dia inteiro", refeicao: "Café · Jantar", resumo: "Amanhecer de balão sobre as chaminés de fada — opção SI.", detalhes: ["Opção SI: passeio de balão ao nascer do sol", "Vale de Göreme — complexo monástico bizantino em rocha", "Aldeias trogloditas de Uçhisar e fortaleza natural", "Chaminés de fada de Urgup e Vale de Güvercinlik", "Atelier de cerâmica e joias típicas", "Opção SI: show da Noite Turca"], img: baloaoImg, video: day5Video.url },
-  { dia: 8, data: "24/nov", cidade: "Capadócia → Ancara", uf: "Lago Salgado · Castelo de Ancara", horario: "Dia inteiro", refeicao: "Café · Jantar", resumo: "Da paisagem lunar à capital moderna da Turquia.", detalhes: ["Viagem por estrada rumo a Ancara", "Parada no Lago Salgado (Tuz) — segundo maior da Turquia", "Castelo de Ancara (Ankara Kalesi) — fortificações dos séc. VII-IX", "Ruas otomanas com casas de vigas de madeira e vistas panorâmicas", "Traslado ao hotel, jantar e hospedagem"], img: yhtImg, video: day4Video.url },
-  { dia: 9, data: "25/nov", cidade: "Ancara → Istambul", uf: "Trem de Alta Velocidade YHT", horario: "Dia inteiro", refeicao: "Café", resumo: "Mausoléu de Atatürk pela manhã, trem-bala à tarde.", detalhes: ["Mausoléu de Atatürk — fundador da República Turca", "Traslado à estação de trem de alta velocidade", "Ticket YHT em classe turística — Ancara → Istambul", "Paisagens do Lago Sapanca, Montanhas de Bolu e Eskişehir", "Chegada em Istambul e traslado ao hotel"], img: yhtImg, video: day3Video.url },
-  { dia: 10, data: "26/nov", cidade: "Istambul · Retorno", uf: "Voo direto IST → Guarulhos", horario: "Voo internacional", refeicao: "Refeições a bordo", resumo: "Café da manhã, tempo livre e o voo de volta para casa.", detalhes: ["Café da manhã e tempo livre", "Traslado ao Aeroporto Internacional de Istambul (IST)", "Voo direto Turkish Airlines TK 215 IST → GRU (20:35, chegada 27/nov 04:20)", "Assistência 24h em português durante todo o retorno"], img: istambulImg, video: day10Video.url },
+const dayMedia = [
+  { img: istambulImg, video: day1Video.url },
+  { img: istambulImg, video: day2Video.url },
+  { img: yhtImg, video: day3Video.url },
+  { img: baloaoImg, video: day6Video.url },
+  { img: baloaoImg, video: day5Video.url },
+  { img: pamukkaleImg, video: day7Video.url },
+  { img: efesoImg, video: day8Video.url },
+  { img: istambulImg, video: day1Video.url },
+  { img: istambulImg, video: day10Video.url },
 ];
-
-const voos = {
-  ida: [
-    { cia: "Turkish Airlines · TK 216 · Voo direto", data: "segunda-feira, 16/nov/2026", from: "GRU · Guarulhos, São Paulo", fromTime: "17:10", to: "IST · Istambul", toTime: "11:45 (+1)", dur: "Direto" },
-  ],
-  volta: [
-    { cia: "Turkish Airlines · TK 215 · Voo direto", data: "quinta-feira, 26/nov/2026", from: "IST · Istambul", fromTime: "20:35", to: "GRU · Guarulhos, São Paulo", toTime: "04:20 (+1)", dur: "Direto" },
-  ],
-  bagagem: ["1 item pessoal pequeno (embaixo do assento)", "1 bagagem de mão de até 8 kg", "Bagagem despachada não inclusa"],
-};
-
-const seguroCoberturas = [
-  "Assistência médica — por evento",
-  "Sala VIP nos aeroportos GRU · BEL · REC · GIG · POA · FOR",
-  "Cancelamento de viagem por múltiplos motivos",
-  "Regresso de menores e maiores",
-  "Traslado de um familiar",
-  "Hospedagem de acompanhante",
-  "Prorrogação de estadia",
-  "Roubo, furto ou extravio de documentos",
-  "Retorno antecipado por sinistro grave na residência",
-  "Traslado de corpo",
-  "Localização de bagagens",
-  "Assistência legal por responsabilidade em acidente",
-];
+const itinerario = roteiroCompleto.map((day, index) => ({
+  dia: index + 1, data: `${String(index + 2).padStart(2, "0")}/abr`,
+  cidade: day.cidade, uf: "Super Turquia · Guia em português",
+  horario: index === 0 ? "Chegada" : index === 8 ? "Traslado de saída" : "Conforme programação",
+  refeicao: day.refeicao,
+  resumo: day.resumo, detalhes: day.texto.split("\n\n"),
+  ...dayMedia[index],
+}));
 
 const lojas = [
   { nome: "CVC Itupava Shopping Mall", bairro: "Curitiba/PR", endereco: "Itupava Shopping Mall", wa: "554188140633", waDisplay: "+55 41 8814-0633", email: "loja.9387@cvc.com.br", insta: "@cvc.pr.itupavashoppingmall" },
@@ -229,13 +211,13 @@ function Header() {
 }
 
 function WaChooser({ label, className = "" }: { label: string; className?: string }) {
-  const msg = encodeURIComponent("Olá! Sou da Família Singer Pereira e gostaria de falar sobre a nossa viagem para a Turquia.");
+  const msg = encodeURIComponent("Olá! Gostaria de saber mais sobre a viagem Super Turquia com trem-bala.");
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#d9b43c] text-sm font-medium text-black shadow-[0_6px_24px_-6px_rgba(217,180,60,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f0cc55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)] ${className}`}>
+        <Button className={`hotel-details-button h-auto rounded-full text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 ${className}`}>
           <MessageCircle className="h-4 w-4" /> {label}
-        </button>
+        </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-72 bg-[color:var(--cvc-ink)] text-off-white border-border">
         <div className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft">Escolha a loja</div>
@@ -258,7 +240,7 @@ function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   return (
-    <section id="top" ref={ref} className="relative min-h-[100svh] w-full overflow-hidden">
+    <section id="top" ref={ref} className="relative min-h-[90svh] w-full overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
         <video
           src={heroVideoAsset.url}
@@ -272,33 +254,21 @@ function Hero() {
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-ink)]/70 via-transparent to-[color:var(--cvc-ink)]" />
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-6 pb-40 pt-32 md:px-12 md:pb-44">
+      <div className="relative z-10 mx-auto flex min-h-[90svh] max-w-7xl flex-col justify-end px-6 pb-24 pt-32 md:px-12 md:pb-28">
         <motion.div {...fadeUp} className="mb-5 flex">
           <span className="rounded-full border border-[#d9b43c] bg-[color:var(--cvc-ink)]/40 px-5 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gold-soft backdrop-blur-sm md:text-xs">
             Maior franquia de viagens do Brasil - referência internacional
           </span>
         </motion.div>
-        <motion.div {...fadeUp} className="mb-2 font-display leading-[1.1]">
-          <span className="text-3xl font-normal text-off-white md:text-5xl">Super </span>
-          <span className="text-3xl italic text-gold-gradient animate-shimmer bg-clip-text md:text-5xl">Turquia</span>
-        </motion.div>
-        <motion.h1 {...fadeUp} className="max-w-5xl">
-          <span className="block text-[11px] uppercase tracking-[0.4em] text-off-white/80 md:text-sm">Dirlene e Família</span>
-          <span
-            className="block py-2 text-[4rem] leading-[1.15] text-gold-gradient animate-shimmer bg-clip-text md:text-[8.5rem]"
-            style={{ fontFamily: "'Great Vibes', cursive" }}
-          >
-            Singer Pereira
-          </span>
-          <span className="mt-2 block font-display text-2xl font-light italic text-off-white md:text-4xl">
-            entre Istambul e a magia da Capadócia.
-          </span>
+        <motion.h1 {...fadeUp} className="max-w-5xl font-display text-6xl font-light leading-[1.2] md:text-8xl">
+          Super <em className="text-gold-gradient animate-shimmer bg-clip-text">Turquia</em>
         </motion.h1>
-      </div>
-      <div className="absolute inset-x-0 bottom-0 z-20 border-y border-gold-soft/40 bg-[color:var(--cvc-ink)]/70 backdrop-blur-sm">
-        <p className="group cursor-default px-6 py-6 text-center font-display text-lg italic text-gold-soft transition-all duration-500 hover:text-[#f5d76e] hover:[text-shadow:0_0_18px_rgba(245,205,85,0.9),0_0_40px_rgba(245,205,85,0.6)] md:px-48 md:text-2xl">
-          Cada detalhe pensado em você e curado só para vocês pela CVC Park Shopping Boulevard
-        </p>
+        <motion.p {...fadeUp} className="mt-6 max-w-2xl font-display text-2xl font-light text-off-white md:text-4xl">
+          Uma viagem extraordinária com trem-bala.
+        </motion.p>
+        <motion.p {...fadeUp} className="mt-5 text-sm text-gold-soft">
+          2 a 10 de abril de 2027 · Istambul · Ancara · Capadócia · Pamukkale · Éfeso
+        </motion.p>
       </div>
     </section>
   );
@@ -314,11 +284,11 @@ function Itinerary() {
           <div className="max-w-2xl">
             <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">O Roteiro</span>
             <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
-              Dez dias,<br />
-              <em className="text-gold-gradient bg-clip-text animate-shimmer">dez histórias.</em>
+              Nove dias,<br />
+              <em className="text-gold-gradient bg-clip-text animate-shimmer">nove histórias.</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light text-off-white/65">
-              Cada dia, um capítulo. Toque um card para ver a programação completa.
+              De 2 a 10 de abril de 2027, com guia em português.
             </p>
           </div>
           <Dialog>
@@ -445,8 +415,8 @@ function VideoFeature() {
 function Bento() {
   const items = [
     { t: "Balões da Capadócia", d: "Amanhecer sobre as chaminés de fada — a imagem-símbolo da viagem.", img: baloaoImg, big: true },
-    { t: "Hotel Caverna", d: "Suítes esculpidas na rocha em Uçhisar & Göreme", img: cavernaImg },
-    { t: "Trem YHT", d: "Alta velocidade entre Istambul e Ancara em classe executiva", img: yhtImg },
+    { t: "Paisagens da Capadócia", d: "Vales, formações vulcânicas e chaminés de fada", img: baloaoImg },
+    { t: "Trem YHT", d: "Alta velocidade entre Istambul e Ancara", img: yhtImg },
     { t: "Pamukkale", d: "Castelo de algodão — piscinas naturais de travertino", img: pamukkaleImg },
     { t: "Éfeso", d: "A maior cidade romana do Mediterrâneo oriental", img: efesoImg },
     { t: "Istambul Bizantina", d: "Santa Sofia, Grande Bazar e Bósforo ao pôr do sol", img: istambulImg },
@@ -477,36 +447,6 @@ function Bento() {
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* 06 — CATEGORY ICONS */
-function CategoryIcons() {
-  const cats = [
-    { i: Plane, t: "Voos", d: "Internacionais com conexões otimizadas" },
-    { i: Hotel, t: "Hospedagem", d: "Hotéis 5★ + Hotel Caverna na Capadócia" },
-    { i: Train, t: "Trem YHT", d: "Alta velocidade em classe executiva" },
-    { i: UtensilsCrossed, t: "Refeições", d: "Café da manhã diário + jantares selecionados" },
-    { i: Map, t: "Passeios", d: "Guia em português em todos os destinos" },
-    { i: Car, t: "Transfer", d: "Transporte executivo casa ↔ aeroporto" },
-  ];
-  return (
-    <section className="bg-[color:var(--cvc-ink)] py-20">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 md:grid-cols-6 md:px-12">
-        {cats.map((c, i) => (
-          <motion.div
-            key={c.t}
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: i * 0.05 }}
-            className="flex flex-col items-center text-center"
-          >
-            <c.i className="h-8 w-8 text-gold-soft" />
-            <h3 className="mt-3 font-display text-lg text-off-white">{c.t}</h3>
-            <p className="mt-1 text-xs font-light text-off-white/60">{c.d}</p>
-          </motion.div>
-        ))}
       </div>
     </section>
   );
@@ -566,7 +506,7 @@ function Reviews() {
             </h2>
           </div>
           <a
-            href="https://g.page/r/CVC-Curitiba/review"
+            href="https://maps.app.goo.gl/jAP4CDfY8zoNf6M97"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 bg-[color:var(--cvc-silver)] px-6 py-3 text-[0.7rem] uppercase tracking-[0.3em] text-black hover:bg-off-white"
@@ -595,46 +535,37 @@ function Reviews() {
 
 const detalhesViagem: { t: string; icon: string; items: string[] }[] = [
   { t: "O que inclui", icon: "✓", items: [
-    "Voos diretos Turkish Airlines GRU ⇄ IST (TK 216 / TK 215) com 1 item pessoal + 1 bagagem de mão 8 kg",
-    "9 noites nos hotéis indicados, incluindo Cave Hotel na Capadócia, com café da manhã",
-    "Voo doméstico Istambul → Izmir",
-    "Trem de Alta Velocidade YHT Ancara → Istambul",
-    "Traslados de chegada e saída do aeroporto IST",
-    "Visitas a Istambul, Éfeso, Pamukkale, Capadócia e Ancara com guia acompanhante",
-    "Ingressos aos lugares de interesse do roteiro",
-    "Gorjetas para guia e motoristas e taxas hoteleiras",
-    "Seguro Assist Card Inter Plus 150K e assistência 24h",
+    "Voo direto de Guarulhos (GRU) a Istambul (IST)",
+    "8 noites de hospedagem nos hotéis previstos ou similares",
+    "Café da manhã e refeições conforme o roteiro",
+    "Trem de alta velocidade YHT Istambul → Ancara",
+    "Voo doméstico Izmir → Istambul",
+    "Traslados de chegada e saída e transporte durante o circuito",
+    "Guia em português e visitas descritas como incluídas no roteiro",
   ]},
   { t: "Não inclui", icon: "✕", items: [
-    "Traslado de/para o Aeroporto Sabiha Gökçen (SAW) — mediante suplemento",
     "Bebidas e refeições não descritas no roteiro",
-    "Despesas pessoais (lavanderia, frigobar, compras)",
-    "Passeios opcionais, como balão na Capadócia e Noite Turca (podem ser reservados com nossa equipe)",
-    "Excesso de bagagem além da franquia aérea",
+    "Despesas pessoais, compras e serviços extras dos hotéis",
+    "Passeios opcionais, como balão e Noite Turca na Capadócia",
+    "Serviços não mencionados como incluídos",
   ]},
   { t: "Seguro Viagem", icon: "🛡️", items: [
-    "Assist Card Inter Plus 150K · 4 adultos",
-    "Vigência: 16/nov/2026 a 27/nov/2026 (12 diárias)",
-    "Assistência médica de até USD 150.000 por evento",
-    "Sala VIP nos aeroportos GRU · BEL · REC · GIG · POA · FOR",
-    "Cancelamento de viagem por múltiplos motivos",
-    "Traslado de familiar e hospedagem de acompanhante",
-    "Prorrogação de estadia e retorno antecipado",
-    "Roubo, furto ou extravio de documentos e localização de bagagens",
-    "Assistência legal e assistência 24h em português",
+    "Consulte nossa equipe sobre o seguro adequado à sua viagem",
+    "Coberturas, limites e período de vigência conforme a apólice contratada",
+    "Tenha a apólice e os contatos de assistência disponíveis durante a viagem",
   ]},
   { t: "Documentação", icon: "📄", items: [
     "Passaporte brasileiro válido por no mínimo 6 meses após o retorno",
     "Brasileiros não precisam de visto para turismo de até 90 dias na Turquia",
-    "Apólice do seguro Assist Card emitida pela CVC",
     "Bilhetes e vouchers enviados pela equipe CVC antes do embarque",
+    "Confirme as exigências de entrada com a equipe antes da viagem",
   ]},
   { t: "Dicas", icon: "💡", items: [
-    "Moeda: Lira Turca (TRY) · cartões internacionais, USD e EUR amplamente aceitos",
-    "Novembro: outono, dias amenos e noites frias na Capadócia e Ancara — roupas em camadas",
+    "Moeda: Lira Turca (TRY)",
+    "Abril: primavera, com noites frias na Capadócia e Ancara — leve roupas em camadas",
     "Fuso: GMT+3 (6h à frente de Curitiba)",
     "Tomadas padrão europeu tipo C/F, 220V",
-    "Em mesquitas, cobrir ombros e joelhos; mulheres levam um lenço para a cabeça",
+    "Em mesquitas, cubra ombros e joelhos; mulheres levam um lenço para a cabeça",
   ]},
 ];
 
@@ -649,30 +580,31 @@ function Budget() {
             Valor <em className="text-gold-gradient bg-clip-text animate-shimmer">total.</em>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-sm font-light text-off-white/65">
-            4 adultos · 2 quartos duplos categoria Premium — voos diretos, circuito Special Tours, trem YHT, refeições e seguro Assist Card.
+            Uma viagem para duas pessoas, com voo direto e a experiência do trem-bala na Turquia.
           </p>
 
-          <div className="mt-12 border border-border bg-card/80 backdrop-blur p-10">
-            <div className="text-[0.6rem] uppercase tracking-[0.4em] text-off-white/50">Valor total · 4 adultos</div>
+          <div className="mt-12 border border-border bg-card/80 backdrop-blur p-5 sm:p-10">
+            <div className="text-[0.6rem] uppercase tracking-[0.4em] text-off-white/50">Valor total · 2 pessoas</div>
             <div className="mt-4 font-display text-5xl font-light text-off-white md:text-7xl">
-              R$ <em className="not-italic text-gold-gradient bg-clip-text animate-shimmer">56.084,30</em>
+              <em className="not-italic text-gold-gradient bg-clip-text animate-shimmer">{formatBRL(ofertaTurquia.total)}</em>
             </div>
-            <div className="mt-2 text-sm font-light text-off-white/70">ou 10x sem juros de R$ 5.608,43</div>
+            <div className="mt-2 text-sm font-light text-off-white/70">{ofertaTurquia.parcelas}x de {formatBRL(ofertaTurquia.total / ofertaTurquia.parcelas)} no cartão sem juros</div>
             <div className="mt-8 border border-gold-soft/60 p-6">
-              <div className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft">Valor promocional</div>
-              <div className="mt-2 font-display text-4xl text-off-white md:text-5xl">R$ 53.000,00</div>
-              <div className="mt-2 text-xs font-light text-off-white/70">desconto aplicado pela loja para pagamento à vista no Pix</div>
+              <div className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft">À vista</div>
+              <div className="mt-2 font-display text-4xl text-off-white md:text-5xl">{formatBRL(ofertaTurquia.aVista)}</div>
+              <div className="mt-2 text-xs font-light text-off-white/70">Pagamento à vista</div>
             </div>
           </div>
 
+          <p className="mt-5 text-sm font-semibold text-gold-soft">{ofertaTurquia.boleto}</p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <WaChooser label="Reservar via WhatsApp" className="px-8 py-4" />
             {detalhesViagem.map((d) => (
               <Dialog key={d.t}>
                 <DialogTrigger asChild>
-                  <button className="rounded-full bg-[#d9b43c] px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:bg-[#f5cd55] hover:shadow-[0_0_40px_6px_rgba(245,205,85,0.75)]">
+                  <Button className="hotel-details-button h-auto rounded-full px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition">
                     {d.icon} {d.t}
-                  </button>
+                  </Button>
                 </DialogTrigger>
                 <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto border-border bg-[color:var(--cvc-ink)] text-off-white">
                   <DialogHeader>
@@ -711,182 +643,21 @@ function Voos() {
       <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--cvc-bg)] via-[color:var(--cvc-ink)]/60 to-[color:var(--cvc-bg)]" />
       <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-12">
         <motion.div {...fadeUp} className="mb-14 max-w-2xl">
-          <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Voos diretos · Turkish Airlines</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Voo direto</span>
           <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
             De Guarulhos a<br />
             <em className="text-gold-gradient bg-clip-text animate-shimmer">Istambul.</em>
           </h2>
         </motion.div>
 
-        <div className="grid gap-10 lg:grid-cols-2">
-          {(["ida", "volta"] as const).map((t) => (
-            <motion.div key={t} {...fadeUp} className="border border-border bg-card p-8">
-              <div className="flex items-center gap-3 border-b border-border pb-4">
-                <Plane className="h-5 w-5 text-gold-soft" />
-                <span className="text-[0.65rem] uppercase tracking-[0.4em] text-gold-soft">
-                  {t === "ida" ? "Detalhes da ida" : "Detalhes da volta"}
-                </span>
-              </div>
-              <div className="mt-6 space-y-6">
-                {voos[t].map((v, i) => {
-                  if (!v.data) {
-                    return (
-                      <div key={i} className="flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.28em] text-off-white/50">
-                        <span className="h-px flex-1 bg-border" />
-                        {v.cia}
-                        <span className="h-px flex-1 bg-border" />
-                      </div>
-                    );
-                  }
-                  return (
-                    <div key={i}>
-                      <div className="text-[0.65rem] uppercase tracking-[0.3em] text-gold-soft">{v.cia}</div>
-                      <div className="mt-1 text-xs text-off-white/60">{v.data}</div>
-                      <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-                        <div>
-                          <div className="font-display text-2xl text-off-white">{v.fromTime}</div>
-                          <div className="mt-1 text-xs font-light text-off-white/70">{v.from}</div>
-                        </div>
-                        <div className="flex flex-col items-center text-[0.6rem] uppercase tracking-[0.3em] text-off-white/50">
-                          <Plane className="h-4 w-4 rotate-90 text-gold-soft" />
-                          <span className="mt-2">{v.dur}</span>
-                        </div>
-                        <div className="text-right">
-                          <div className="font-display text-2xl text-off-white">{v.toTime}</div>
-                          <div className="mt-1 text-xs font-light text-off-white/70">{v.to}</div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div {...fadeUp} className="mt-10 border-t border-border pt-6">
-          <div className="text-[0.6rem] uppercase tracking-[0.4em] text-gold-soft">Franquia de bagagem</div>
-          <ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-sm font-light text-off-white/80">
-            {voos.bagagem.map((b) => (
-              <li key={b} className="flex items-center gap-2"><span className="h-px w-4 bg-gold-soft" />{b}</li>
-            ))}
-          </ul>
-        </motion.div>
+        <motion.p {...fadeUp} className="flex items-center gap-4 border-t border-gold-soft/40 pt-8 text-lg text-off-white">
+          <Plane className="h-6 w-6 shrink-0 text-gold-soft" />
+          Voo direto de Guarulhos (GRU) a Istambul (IST)
+        </motion.p>
       </div>
     </section>
   );
 }
-
-/* 09c — SEGURO INTER PRIME */
-function Seguro() {
-  return (
-    <section className="bg-[color:var(--cvc-ink)] py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6 md:px-12">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
-          <motion.div {...fadeUp}>
-            <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Seguro Viagem</span>
-            <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
-              Assist Card<br />
-              <em className="text-gold-gradient bg-clip-text animate-shimmer">Inter Plus 150K.</em>
-            </h2>
-            <div className="mt-8 space-y-2 text-sm font-light text-off-white/80">
-              <div className="flex items-center gap-3">
-                <span className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft w-16">Início</span>
-                <span>segunda-feira, 16/nov/2026</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft w-16">Fim</span>
-                <span>sexta-feira, 27/nov/2026</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-[0.6rem] uppercase tracking-[0.35em] text-gold-soft w-16">Cobertura</span>
-                <span>4 adultos · 12 diárias</span>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeUp} className="border border-border bg-card p-8">
-            <div className="text-[0.6rem] uppercase tracking-[0.4em] text-gold-soft">Assistências oferecidas</div>
-            <ul className="mt-5 grid gap-3 text-sm font-light text-off-white/85 md:grid-cols-2">
-              {seguroCoberturas.map((c) => (
-                <li key={c} className="flex gap-3"><span className="mt-2 h-px w-4 flex-shrink-0 bg-gold-soft" />{c}</li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* 10 — INCLUDES */
-function Includes() {
-  const cols = [
-    { t: "Inclui", items: [
-      "Assistência à chegada no aeroporto por pessoal de língua espanhola",
-      "Traslados de chegada e saída do aeroporto IST",
-      "9 noites de acomodação nos hotéis indicados",
-      "Regime alimentar conforme opção de itinerário escolhida",
-      "Voo doméstico Istambul → Izmir (classe turística)",
-      "Ticket de Trem de Alta Velocidade YHT Ancara → Istambul (classe turística)",
-      "Visitas a Ancara, Capadócia, Pamukkale e Éfeso",
-      "Excursão em Istambul (Bósforo + bairro Balat)",
-      "Guia acompanhante em espanhol durante o passeio",
-      "Ingressos aos lugares de interesse do itinerário",
-      "Gorjetas para guia, motoristas e afins",
-      "Taxas hoteleiras incluídas",
-      "Seguro Viagem Assist Card Inter Plus 150K",
-      "Assistência telefônica 24h",
-    ]},
-    { t: "Opção SI (Super Incluído)", items: [
-      "Passeio de balão na Capadócia ao amanhecer",
-      "Show da Noite Turca na Capadócia",
-      "Visita de dia inteiro a Istambul com Santa Sofia e almoço",
-      "Mesquita de Süleymaniye e parte asiática de Istambul",
-      "Almoço na Mesquita do Sultão Süleyman",
-    ]},
-    { t: "Não inclui", items: [
-      "Traslado de/para o Aeroporto Sabiha Gökçen (SAW) — mediante suplemento",
-      "Bebidas em refeições não incluídas",
-      "Almoços e jantares livres",
-      "Despesas de caráter pessoal",
-      "Passeios opcionais fora do roteiro",
-    ]},
-    { t: "Documentação & Dicas", items: [
-      "Passaporte válido por +6 meses",
-      "Turquia não exige visto para brasileiros",
-      "Moeda: Lira Turca (TRY) · aceita-se USD e EUR",
-      "Clima em março: 10–18°C — leve casaco",
-      "Tomadas padrão europeu tipo C/F",
-      "Fuso: GMT+3 (6h à frente de Curitiba)",
-    ]},
-  ];
-  return (
-    <section className="bg-[color:var(--cvc-ink)] py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <motion.div {...fadeUp} className="mb-16">
-          <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Tudo o que você precisa saber</span>
-          <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-5xl">
-            Serviços <em className="text-gold-gradient bg-clip-text animate-shimmer">inclusos.</em>
-          </h2>
-        </motion.div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {cols.map((c, i) => (
-            <motion.div key={c.t} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.05 }}>
-              <h3 className="font-display text-xl text-off-white border-b border-gold-soft/40 pb-3">{c.t}</h3>
-              <ul className="mt-5 space-y-3 text-sm font-light text-off-white/80">
-                {c.items.map((x) => (
-                  <li key={x} className="flex gap-3"><span className="mt-2 h-px w-4 flex-shrink-0 bg-gold-soft" />{x}</li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 
 /* 11 — FINALE REVEAL */
 function FinaleReveal() {
@@ -910,18 +681,14 @@ function FinaleReveal() {
         ) : (
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }}>
             <p className="font-display text-3xl font-light leading-tight text-off-white md:text-5xl">
-              Turquia, uma viagem para guardar{" "}
-              <em className="text-gold-gradient bg-clip-text animate-shimmer">no coração pela vida inteira!</em>
+              Sua próxima grande história <em className="text-gold-gradient bg-clip-text animate-shimmer">começa na Turquia.</em>
             </p>
-            <p className="mx-auto mt-6 max-w-xl text-sm font-light text-off-white/70 md:text-base">
-              Cada detalhe pensado e curado só para vocês, pela CVC Park Shopping Boulevard.
+            <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-off-white/80">
+              Descubra o encontro entre continentes, as paisagens da Capadócia e a experiência de viajar de trem-bala.
+              Com a CVC Curitiba, transforme a vontade de conhecer o mundo em uma viagem inesquecível.
             </p>
-            <p className="mt-14 font-display text-2xl font-light italic leading-snug text-off-white md:text-4xl">
-              "Uma experiência incrível, gerando algumas das mais inesquecíveis memórias da vida de Liliane e Família Singer Pereira.
-              <br />
-              <em className="text-gold-gradient bg-clip-text animate-shimmer">Obrigado pela confiança, já estamos ansiosos para a próxima aventura!</em>"
-            </p>
-            <div className="mt-10 text-xs uppercase tracking-[0.4em] text-gold-soft">CVC Park Shopping Boulevard</div>
+            <p className="mt-8 font-display text-2xl text-gold-soft">Fale com nossa equipe e comece a planejar sua Super Turquia.</p>
+            <div className="mt-8"><WaChooser label="Falar com um CVC" className="px-8 py-4" /></div>
           </motion.div>
         )}
       </div>
@@ -991,7 +758,7 @@ function Equipe() {
 /* FOOTER */
 const unidadesInfo = [
   { ...lojas[0], titulo: "CVC Itupava", destaque: "Shopping Mall", endereco: "Itupava Shopping Mall · Hugo Lange · Curitiba/PR", mapa: "Itupava Shopping Mall Curitiba" },
-  { ...lojas[1], titulo: "CVC Park Shopping", destaque: "Boulevard", endereco: "BR-116, 16303, Loja 1004 · Xaxim · Curitiba/PR", mapa: "Shopping Boulevard Curitiba Linha Verde 16303" },
+  { ...lojas[1], titulo: "CVC Park Shopping", destaque: "Boulevard", endereco: "Linha Verde, 16303, Loja 1004 · Xaxim · Curitiba/PR", mapa: "Shopping Boulevard Curitiba Linha Verde 16303" },
 ];
 
 function Footer() {
