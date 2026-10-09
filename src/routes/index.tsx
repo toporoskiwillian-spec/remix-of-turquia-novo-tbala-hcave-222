@@ -102,12 +102,12 @@ const fadeUp = {
 const dayMedia = [
   { img: istambulImg, video: day1Video.url },
   { img: istambulImg, video: day2Video.url },
+  { img: istambulImg, video: day1Video.url },
   { img: yhtImg, video: day3Video.url },
-  { img: baloaoImg, video: day6Video.url },
+  { img: baloaoImg, video: day4Video.url },
   { img: baloaoImg, video: day5Video.url },
   { img: pamukkaleImg, video: day7Video.url },
   { img: efesoImg, video: day8Video.url },
-  { img: istambulImg, video: day1Video.url },
   { img: istambulImg, video: day10Video.url },
 ];
 const itinerario = roteiroCompleto.map((day, index) => ({
