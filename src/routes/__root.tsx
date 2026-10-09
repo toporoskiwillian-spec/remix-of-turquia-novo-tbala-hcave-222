@@ -78,10 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Turquia Exclusiva · CVC Itupava & Park Shopping Boulevard" },
-      { name: "description", content: "Proposta exclusiva de viagem à Turquia: Istambul, Éfeso, Pamukkale e Capadócia com curadoria CVC Itupava & Park Shopping Boulevard." },
-      { property: "og:title", content: "Turquia Exclusiva · CVC Itupava & Park Shopping Boulevard" },
-      { property: "og:description", content: "Proposta exclusiva de viagem à Turquia com curadoria CVC Itupava & Park Shopping Boulevard." },
+      { title: "Super Turquia com trem-bala · CVC Curitiba" },
+      { name: "description", content: "Descubra a Super Turquia com trem-bala, Istambul e Capadócia com a CVC Itupava e Park Shopping Boulevard." },
+      { property: "og:title", content: "Super Turquia com trem-bala · CVC Curitiba" },
+      { property: "og:description", content: "Uma viagem extraordinária pela Turquia com a CVC Itupava e Park Shopping Boulevard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
