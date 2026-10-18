@@ -1,0 +1,621 @@
+{
+  "meta": {
+    "name": "Remix of TURQUIA NOVO TBALA HCAVE 222",
+    "package": "@ws-c285cdd8ff2005042701/27fe6599-69f2-4a35-9d71-845164adda23",
+    "version": "1.0.0",
+    "framework": "react",
+    "css_framework": "tailwind",
+    "starter_template": "custom_design_system_tailwind",
+    "theme_files": [
+      "src/styles.css"
+    ],
+    "source_type": "local",
+    "source_manifest": {
+      "#enrichment": "e4d1b933de9d9a8b9829914857aad136afce49f9f01dbd91031314083005e50e",
+      ".gitignore": "6d9e901a692b46a83707c245fb03bc91",
+      ".lovable/plan.md": "d278e2ea3b7bced28b12f83288cbeb49",
+      ".lovable/project.json": "28d9f425378ffed77c00c323e605a60a",
+      ".prettierignore": "7279a476f196a2da5f7edd18db568dc6",
+      ".prettierrc": "185ef0234746ab738ac1ab6cec5e2bd9",
+      "AGENTS.md": "5add0d7dd6938e590fe140c1334c047e",
+      "bunfig.toml": "9957b71c4a8343271dc6c103da6c42b8",
+      "components.json": "30d3d035361ce807021f5c54620962e9",
+      "eslint.config.js": "345bdd57e188e0e4525edcd00e5003f5",
+      "package.json": "64186eb64a385a28ae633606994bbe16",
+      "roadmap.md": "fa2b235925aee35acf78ebcf1f923073",
+      "src/assets/cvc-premium-banner.png.asset.json": "bf5984bd058c3432b15d185476bf0348",
+      "src/assets/equipe/Consultor_de_Experiencias_Luiz.jpeg.asset.json": "db4484762f3b841f11048f085972cb43",
+      "src/assets/equipe/Customer_Experiences_Otavio.jpeg.asset.json": "845e687ceb2810559bf73d6727f60a89",
+      "src/assets/equipe/Socia_diretora_Bruna_Toporoski.jpeg.asset.json": "789ecb9c35131e6a81d141cd5bc53ce9",
+      "src/assets/equipe/Socio_Diretor_Will_Toporoski.jpeg.asset.json": "6ee41c14e2cfa7f41fe4fcb3eccd11f0",
+      "src/assets/equipe/Socio_Diretor_Will_Toporoski_v2.jpeg.asset.json": "e2ff1cf90c6213aa7df19611bb652690",
+      "src/assets/hotels/ankara.jpg": "684c6878f8be26bdfcea1d7df65d7eda",
+      "src/assets/hotels/canakkale.jpg": "0f587cde006d76ba8a4500f08f35c6de",
+      "src/assets/hotels/capadocia.jpg": "8375ad4ac7c33daa9816895092aaaf36",
+      "src/assets/hotels/istambul.jpg": "454a67ab07fd2e3dc92cea43bf00cebf",
+      "src/assets/hotels/izmir.jpg": "a8c3779678522cb2c7f6041f8c888aae",
+      "src/assets/hotels/pamukkale.jpg": "6b58a2ba18e04a79a1379a4b35c3a7b0",
+      "src/assets/hotels/radisson-istanbul-merter.asset.json": "17e07a3be05f80bd4ec60184eb95ce18",
+      "src/assets/proposta/aviao.jpg": "4d9c26abccb9b9c37e8d0354b153e25f",
+      "src/assets/proposta/curadoria.jpeg.asset.json": "c345671aad3a8f35a2c974df66a62e03",
+      "src/assets/proposta/customer-experience.jpg": "ba5d50d583a148577b7a58eda25a1a94",
+      "src/assets/proposta/cvc-google-qr.png.asset.json": "056b516243ac5d9b91b76cf96323d380",
+      "src/assets/proposta/logo-cvc.jpeg.asset.json": "badc6092ca18fd115a046033bc6011f0",
+      "src/assets/proposta/transfer.webp.asset.json": "bfcd3b9c6a3313cde47718ed1d2671b4",
+      "src/assets/turquia/balao.jpg": "9eb219490567bbab7618f0fd0f13030b",
+      "src/assets/turquia/day-1-istambul.mp4.asset.json": "423dc508fc58ee7ae16d90e97b61a783",
+      "src/assets/turquia/day-10-retorno.mp4.asset.json": "775752d7a0a3a92a5719dc3a181d69c4",
+      "src/assets/turquia/day-2-hagia.mp4.asset.json": "48b1332eb6be428719ffb2a117100f71",
+      "src/assets/turquia/day-3-yht.mp4.asset.json": "08edf3507e692c6e11b1ee913f6884f3",
+      "src/assets/turquia/day-4-ancara.mp4.asset.json": "c41bd9853f695a53d2b055a31dc43474",
+      "src/assets/turquia/day-5-balao.mp4.asset.json": "c0d97139c443dda00f46e5bee080f1f2",
+      "src/assets/turquia/day-6-caverna.mp4.asset.json": "6c9bf0ef80744b9fb0e5398b5f131845",
+      "src/assets/turquia/day-7-pamukkale.mp4.asset.json": "2bb356f11730c96df7acadc0fdbda6c4",
+      "src/assets/turquia/day-8-efeso.mp4.asset.json": "b9bbf6ad2c84dc9a82c5aa3cc83f43b5",
+      "src/assets/turquia/day-9-kusadasi.mp4.asset.json": "660c6d1f47ecad133da7b281fe1f9664",
+      "src/assets/turquia/efeso.jpg": "2c8deae3e7586e9aea4cfd360c6ea8a4",
+      "src/assets/turquia/feature-turquia.mp4.asset.json": "9c6244b93b35d74d300f936e004a36dc",
+      "src/assets/turquia/hero-turquia.jpg": "ef0adfc2df1bb04ef04d44d892606785",
+      "src/assets/turquia/hero-turquia.mp4.asset.json": "2eea20b51653ea73f03216d19fbac577",
+      "src/assets/turquia/hotel-caverna.jpg": "543371caf5828d1a23afb053eaff62ba",
+      "src/assets/turquia/istambul-bosforo-cinema.mp4.asset.json": "3f833152dd558cf021b355d645ee848b",
+      "src/assets/turquia/istambul.jpg": "9ab5f6623a86ba127aa674ff179031aa",
+      "src/assets/turquia/pamukkale.jpg": "51dbeb22714fd4b051e2a266d9b58a5f",
+      "src/assets/turquia/trem-yht.jpg": "7e504259172183124e2b3a6f874f4d46",
+      "src/components/HotelDetails.tsx": "385867df89b841c00519d3a44d193e30",
+      "src/components/HotelGallery.tsx": "2af1a739937ea726d102cc8afa5aa37e",
+      "src/components/Hotels.tsx": "f231581a3fbed8ce5bdc27ace972d594",
+      "src/components/ui/accordion.tsx": "55f9dda62b4e3913c9b23e5015a86aef",
+      "src/components/ui/alert-dialog.tsx": "96350e949e9b7b674545430a410ab89c",
+      "src/components/ui/alert.tsx": "f993d7e96b1e25ce50e68ed97e11d2a8",
+      "src/components/ui/aspect-ratio.tsx": "c5c364545e1b25a94e9e752cd67ad048",
+      "src/components/ui/avatar.tsx": "72989cd32f72c4122802540ef32525a5",
+      "src/components/ui/badge.tsx": "81cade001fc4260f9943e18dcd79449b",
+      "src/components/ui/breadcrumb.tsx": "bb9ac254f12662b20d5d50b84308bf3a",
+      "src/components/ui/button.tsx": "7d07d520f486b12bd47373d694ecd2ee",
+      "src/components/ui/calendar.tsx": "415d91d7006d4cc654e27620fca340f6",
+      "src/components/ui/card.tsx": "d6c48ea36221b9cdc3576d305d12d5d5",
+      "src/components/ui/carousel.tsx": "e324c68ae00cd5aed49317638abd429a",
+      "src/components/ui/chart.tsx": "6a3baf94f2e89f1f97d4d7a28f3622d2",
+      "src/components/ui/checkbox.tsx": "f78aac270ca482c8c2cb907ef6260462",
+      "src/components/ui/collapsible.tsx": "767631bbc344945c236f185f4078d71d",
+      "src/components/ui/command.tsx": "014782599cc838b021ec68b07ad4ea02",
+      "src/components/ui/context-menu.tsx": "e9d689beb53d9adb63165bfe64838bf6",
+      "src/components/ui/dialog.tsx": "ef4fe8e7de8675730afe3d633b260e09",
+      "src/components/ui/drawer.tsx": "8be333e8fd8e42576b1b5f72f07f4337",
+      "src/components/ui/dropdown-menu.tsx": "32156e221f3473280114c80fdb818829",
+      "src/components/ui/form.tsx": "1b0aa6302b9017ea2a1307c22a1d2983",
+      "src/components/ui/hover-card.tsx": "1442794c5ca2a78d69e4e613b315ed3d",
+      "src/components/ui/input-otp.tsx": "58cff10c8942cac8483c0bcd65d39d3c",
+      "src/components/ui/input.tsx": "1d4cc52a4cd8afb3e18e45bda942bb8a",
+      "src/components/ui/label.tsx": "7e35df4ca8edd0835efd97ca7937ef92",
+      "src/components/ui/menubar.tsx": "5870465653e12c3d0e35a2fad6f9faa9",
+      "src/components/ui/navigation-menu.tsx": "e85351147a02b29577ff83d188b63c24",
+      "src/components/ui/pagination.tsx": "fac6cdbb4bbf78b273d85cd36d6cbb49",
+      "src/components/ui/popover.tsx": "f18aa1da2144f25ee60795c539c51bcd",
+      "src/components/ui/progress.tsx": "55c462e5c9dd678dcf2c0c510b014ac4",
+      "src/components/ui/radio-group.tsx": "0e1ace237a5da3197e3eb1e6683faba9",
+      "src/components/ui/resizable.tsx": "d9fcb9203c749fcab4e125a99bb12a86",
+      "src/components/ui/scroll-area.tsx": "87b65d3eb26f2b02ff35a7acea585ba5",
+      "src/components/ui/select.tsx": "31ea1bbd6671833b010b2e852c8a55d0",
+      "src/components/ui/separator.tsx": "433d163c4ffa00b59398a0c293198b5e",
+      "src/components/ui/sheet.tsx": "0221fbf97b69611b47fcbc10bb27669a",
+      "src/components/ui/sidebar.tsx": "83c1623eb50ebc370d7b1b84a542e369",
+      "src/components/ui/skeleton.tsx": "41b182e6e2fc3805960d41e767d4a972",
+      "src/components/ui/slider.tsx": "4752f1bfa26426988d325599e01c335b",
+      "src/components/ui/sonner.tsx": "97f59f60be3413196d095fcbf7383216",
+      "src/components/ui/switch.tsx": "82f5d8b0c59bb7ff305caa9f502e79ff",
+      "src/components/ui/table.tsx": "7cc889989d53894b659903c73aded96e",
+      "src/components/ui/tabs.tsx": "56e725558c2ce72c18243bf51717f385",
+      "src/components/ui/textarea.tsx": "c7aad96fb9545210d53135a96c76ed6b",
+      "src/components/ui/toggle-group.tsx": "ac26383acf721d116ca8e3ab5c5355d5",
+      "src/components/ui/toggle.tsx": "ee8c5adac74e7242b85b544db1a8fbad",
+      "src/components/ui/tooltip.tsx": "67d71db5a1ab935695d1def497f5b8a6",
+      "src/hooks/use-mobile.tsx": "c0a0bdd4638c391a1dd06ac82074e60b",
+      "src/lib/curadoria.functions.ts": "83077b8d00fd52869b9a841ca0ac1916",
+      "src/lib/error-capture.ts": "00e77bfacfb2d79c0816361e678f1b65",
+      "src/lib/error-page.ts": "8da0ddd7569bac2676b9a5c8edff8a36",
+      "src/lib/lovable-error-reporting.ts": "0e6014b8724d59792cd855f3d014c2fe",
+      "src/lib/oferta-turquia.test.ts": "0b4d4afef6fa5da358b91e994a09b5e0",
+      "src/lib/oferta-turquia.ts": "d25efa8ec40ea4b3825c1723b45d82e9",
+      "src/lib/roteiro-completo.ts": "03633dec8921adb9d564850f1fdc2ec0",
+      "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
+      "src/routeTree.gen.ts": "2308e1920642c072ca80162930c3037e",
+      "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
+      "src/routes/README.md": "b3a2f259b66fd1a11f54b6d5ac83bf57",
+      "src/routes/__root.tsx": "c692f2c3b9cce2c32e4b69cae69ddc69",
+      "src/routes/curadoria.tsx": "be5728722955c86839ce5ee50e058a39",
+      "src/routes/index.tsx": "b7e53673a289664a0518a2d2f376ea7c",
+      "src/server.ts": "fbc6ebe75c2c10edbbe88119737e2f68",
+      "src/start.ts": "dc15eda4f935f0db8392d02ab93cbce4",
+      "src/styles.css": "40b28ab7422b7df87455bc98db5d4e5f",
+      "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
+      "vite.config.ts": "9b5826e4234170e2eda50f3eb7a1b95c"
+    },
+    "pipeline_version": 8
+  },
+  "tokens": {
+    "color": [
+      {
+        "name": "--cvc-ink",
+        "raw": "#0B0B0F",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--cvc-bg",
+        "raw": "#101015",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--cvc-silver",
+        "raw": "#C7CBD1",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--gold-soft",
+        "raw": "#D4AF37",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--gold-deep",
+        "raw": "#9C7A1E",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--off-white",
+        "raw": "#F5F2EA",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--card",
+        "raw": "#15151B",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--secondary",
+        "raw": "#1B1B22",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--muted",
+        "raw": "#1B1B22",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--muted-foreground",
+        "raw": "#8B8E96",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--destructive",
+        "raw": "#B23A3A",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--border",
+        "raw": "rgba(245, 242, 234, 0.12)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--input",
+        "raw": "rgba(245, 242, 234, 0.16)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--hotel-button-gold",
+        "raw": "#d9b43c",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--hotel-button-highlight",
+        "raw": "#f5cd55",
+        "source": "src/styles.css"
+      }
+    ],
+    "typography": [
+      {
+        "name": "--font-display",
+        "raw": "\"Playfair Display\", ui-serif, Georgia, serif",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--font-sans",
+        "raw": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+        "source": "src/styles.css"
+      }
+    ],
+    "radius": [
+      {
+        "name": "--radius-sm",
+        "raw": "calc(var(--radius) - 4px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius-md",
+        "raw": "calc(var(--radius) - 2px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius-xl",
+        "raw": "calc(var(--radius) + 4px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius",
+        "raw": "0.25rem",
+        "source": "src/styles.css"
+      }
+    ],
+    "shadow": [
+      {
+        "name": "--shadow-luxury",
+        "raw": "0 30px 80px -40px rgba(0, 0, 0, 0.8)",
+        "source": "src/styles.css"
+      }
+    ],
+    "other": [
+      {
+        "name": "--gradient-gold",
+        "raw": "linear-gradient(135deg, #F8F2D8 0%, #D4AF37 50%, #9C7A1E 100%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--hotel-button-glow",
+        "raw": "0 0 40px 6px rgba(245, 205, 85, 0.75)",
+        "source": "src/styles.css"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "HotelDetails",
+      "file": "src/components/HotelDetails",
+      "import_path": "",
+      "props": [
+        {
+          "name": "hotel",
+          "type": "object",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HotelGallery",
+      "file": "src/components/HotelGallery",
+      "import_path": "",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "photos",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "initialIndex",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "onOpenChange",
+          "type": "function",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Hotels",
+      "file": "src/components/Hotels",
+      "import_path": ""
+    },
+    {
+      "name": "Button",
+      "file": "src/components/ui/button",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "default",
+            "destructive",
+            "outline",
+            "secondary",
+            "ghost",
+            "link"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "default",
+            "sm",
+            "lg",
+            "icon"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Dialog",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogPortal",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogOverlay",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogTrigger",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogClose",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogContent",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogHeader",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogFooter",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogTitle",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogDescription",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    }
+  ],
+  "assets": [
+    {
+      "file": "src/assets/cvc-premium-banner.png.asset.json",
+      "kind": "image",
+      "format": "png",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/equipe/Consultor_de_Experiencias_Luiz.jpeg.asset.json",
+      "kind": "image",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/equipe/Customer_Experiences_Otavio.jpeg.asset.json",
+      "kind": "image",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/equipe/Socia_diretora_Bruna_Toporoski.jpeg.asset.json",
+      "kind": "image",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/equipe/Socio_Diretor_Will_Toporoski.jpeg.asset.json",
+      "kind": "image",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/equipe/Socio_Diretor_Will_Toporoski_v2.jpeg.asset.json",
+      "kind": "image",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/hotels/ankara.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/hotels/canakkale.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/hotels/capadocia.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/hotels/istambul.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/hotels/izmir.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/hotels/pamukkale.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/proposta/aviao.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/proposta/curadoria.jpeg.asset.json",
+      "kind": "image",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/proposta/customer-experience.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/proposta/cvc-google-qr.png.asset.json",
+      "kind": "image",
+      "format": "png",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/proposta/logo-cvc.jpeg.asset.json",
+      "kind": "logo",
+      "format": "jpeg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/proposta/transfer.webp.asset.json",
+      "kind": "image",
+      "format": "webp",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/balao.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/turquia/day-1-istambul.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-10-retorno.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-2-hagia.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-3-yht.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-4-ancara.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-5-balao.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-6-caverna.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-7-pamukkale.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-8-efeso.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/day-9-kusadasi.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/efeso.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/turquia/feature-turquia.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/hero-turquia.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/turquia/hero-turquia.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/hotel-caverna.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/turquia/istambul-bosforo-cinema.mp4.asset.json",
+      "kind": "video",
+      "format": "mp4",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/turquia/istambul.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/turquia/pamukkale.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/turquia/trem-yht.jpg",
+      "kind": "image",
+      "format": "jpg"
+    }
+  ]
+}
