@@ -24,7 +24,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Hotels } from "@/components/Hotels";
 import { roteiroCompleto } from "@/lib/roteiro-completo";
 import aviaoImg from "@/assets/proposta/aviao.jpg";
-import premiumBanner from "@/assets/cvc-premium-banner.png.asset.json";
+import premiumBanner from "@/assets/logos/02_logo_horizontal.png.asset.json";
+import logoRedonda from "@/assets/logos/03_logo_redonda_compacta.png.asset.json";
+import bannerPrincipal from "@/assets/logos/01_banner_principal44.png.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
@@ -765,6 +767,7 @@ function Footer() {
   return (
     <footer className="bg-[color:var(--cvc-ink)] border-t border-border py-16 text-off-white/75">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:px-12">
+        <img src={bannerPrincipal.url} alt="CVC Premium · Itupava Shopping Mall e Park Shopping Boulevard" loading="lazy" className="w-full rounded-xl border border-border" />
         {unidadesInfo.map((l) => (
           <div key={l.wa} className="grid overflow-hidden rounded-xl border border-border bg-[color:var(--cvc-bg)] md:grid-cols-2">
             <div className="p-8 md:p-10">
@@ -796,6 +799,7 @@ function Footer() {
           </div>
         ))}
 
+        <img src={logoRedonda.url} alt="Selo CVC Premium" loading="lazy" className="mx-auto h-28 w-28 rounded-full" />
         <div className="border-t border-border pt-6 text-[0.65rem] uppercase tracking-[0.3em] text-off-white/40">
           Preços e condições sujeitos à disponibilidade · Imagens meramente ilustrativas ·{" "}
           <a href="/curadoria" className="underline-offset-4 hover:text-primary hover:underline">Área da equipe</a>
