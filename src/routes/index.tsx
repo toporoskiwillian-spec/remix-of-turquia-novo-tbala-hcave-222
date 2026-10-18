@@ -797,7 +797,8 @@ function Footer() {
         ))}
 
         <div className="border-t border-border pt-6 text-[0.65rem] uppercase tracking-[0.3em] text-off-white/40">
-          Preços e condições sujeitos à disponibilidade · Imagens meramente ilustrativas
+          Preços e condições sujeitos à disponibilidade · Imagens meramente ilustrativas ·{" "}
+          <a href="/curadoria" className="underline-offset-4 hover:text-primary hover:underline">Área da equipe</a>
         </div>
       </div>
     </footer>
