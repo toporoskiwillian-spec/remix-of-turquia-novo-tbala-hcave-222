@@ -7,9 +7,9 @@ import { gerarFichaHotel, type FichaEditorial } from "@/lib/curadoria.functions"
 export const Route = createFileRoute("/curadoria")({
   head: () => ({
     meta: [
-      { title: "Curadoria de Hotéis · CVC Curitiba" },
+      { title: "Curadoria de Hotéis · CVC Palotina" },
       { name: "description", content: "Ferramenta interna para gerar fichas editoriais de hotéis a partir de fontes e fotos da equipe CVC." },
-      { property: "og:title", content: "Curadoria de Hotéis · CVC Curitiba" },
+      { property: "og:title", content: "Curadoria de Hotéis · CVC Palotina" },
       { property: "og:description", content: "Fichas editoriais de hotéis baseadas apenas em materiais verificados." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
