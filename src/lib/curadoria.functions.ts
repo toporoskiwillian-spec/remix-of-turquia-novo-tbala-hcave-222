@@ -48,7 +48,7 @@ const fichaSchema = z.object({
 export type FichaEditorial = z.infer<typeof fichaSchema>;
 export type CuradoriaResult = { ok: true; ficha: FichaEditorial } | { ok: false; error: string };
 
-const INSTRUCTIONS = `Você é editor de conteúdo da CVC Curitiba (lojas Itupava e Shopping Boulevard).
+const INSTRUCTIONS = `Você é editor de conteúdo da CVC Palotina.
 Crie uma ficha editorial de hotel em português do Brasil usando EXCLUSIVAMENTE os materiais fornecidos.
 Regras obrigatórias:
 - Nunca invente, estime ou complete dados (estrelas, endereço, notas, horários, serviços). Se não estiver nos materiais, use null ou lista vazia e registre em "dadosAusentes" com o motivo.

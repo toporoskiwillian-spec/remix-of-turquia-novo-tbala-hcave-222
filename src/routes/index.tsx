@@ -27,7 +27,7 @@ import { roteiroCompleto } from "@/lib/roteiro-completo";
 import aviaoImg from "@/assets/proposta/aviao.jpg";
 import premiumBanner from "@/assets/logos/02_logo_horizontal.png.asset.json";
 import logoRedonda from "@/assets/logos/03_logo_redonda_compacta.png.asset.json";
-import bannerPrincipal from "@/assets/logos/01_banner_principal44.png.asset.json";
+import bannerPrincipal from "@/assets/logos/emblema-palotina.png.asset.json";
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
@@ -191,7 +191,7 @@ function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="bg-[color:var(--cvc-ink)] text-off-white border-border">
             <SheetHeader>
-              <SheetTitle className="font-display text-2xl text-off-white">CVC · Itupava & Boulevard</SheetTitle>
+              <SheetTitle className="font-display text-2xl text-off-white">CVC Palotina</SheetTitle>
             </SheetHeader>
             <nav className="mt-8 flex flex-col gap-5">
               {nav.map(([l, h]) => (
@@ -761,7 +761,7 @@ function Footer() {
   return (
     <footer className="bg-[color:var(--cvc-ink)] border-t border-border py-16 text-off-white/75">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:px-12">
-        <img src={bannerPrincipal.url} alt="CVC Palotina" loading="lazy" className="w-full rounded-xl border border-border" />
+        <img src={bannerPrincipal.url} alt="CVC Palotina" loading="lazy" className="mx-auto h-48 w-48 rounded-full" />
         {unidadesInfo.map((l) => (
           <div key={l.wa} className="grid overflow-hidden rounded-xl border border-border bg-[color:var(--cvc-bg)] md:grid-cols-2">
             <div className="p-8 md:p-10">
