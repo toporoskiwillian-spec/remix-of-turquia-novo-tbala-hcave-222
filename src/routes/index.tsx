@@ -16,6 +16,7 @@ import {
   MapPin,
   Mail,
   Instagram,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
@@ -30,10 +31,6 @@ import bannerPrincipal from "@/assets/logos/01_banner_principal44.png.asset.json
 import curadoriaAsset from "@/assets/proposta/curadoria.jpeg.asset.json";
 import customerImg from "@/assets/proposta/customer-experience.jpg";
 import transferAsset from "@/assets/proposta/transfer.webp.asset.json";
-import willAsset from "@/assets/equipe/Socio_Diretor_Will_Toporoski_v2.jpeg.asset.json";
-import brunaAsset from "@/assets/equipe/Socia_diretora_Bruna_Toporoski.jpeg.asset.json";
-import otavioAsset from "@/assets/equipe/Customer_Experiences_Otavio.jpeg.asset.json";
-import luizAsset from "@/assets/equipe/Consultor_de_Experiencias_Luiz.jpeg.asset.json";
 
 import heroImg from "@/assets/turquia/hero-turquia.jpg";
 import istambulImg from "@/assets/turquia/istambul.jpg";
@@ -65,16 +62,16 @@ const WA_MSG = encodeURIComponent(
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Super Turquia com trem-bala | CVC Curitiba" },
+      { title: "Super Turquia com trem-bala | CVC Palotina" },
       {
         name: "description",
         content:
-          "Super Turquia de 2 a 10 de abril de 2027: Istambul, Ancara, Capadócia, Pamukkale e Éfeso com trem-bala e guia em português. R$ 29.000 para duas pessoas.",
+          "Super Turquia de 2 a 10 de abril de 2027: Istambul, Ancara, Capadócia, Pamukkale e Éfeso com trem-bala e guia em português. Atendimento CVC Palotina.",
       },
-      { property: "og:title", content: "Super Turquia com trem-bala | CVC Curitiba" },
+      { property: "og:title", content: "Super Turquia com trem-bala | CVC Palotina" },
       {
         property: "og:description",
-        content: "Descubra Istambul, a Capadócia e o trem-bala com a CVC Itupava e Park Shopping Boulevard.",
+        content: "Descubra Istambul, a Capadócia e o trem-bala com a CVC Palotina.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -85,8 +82,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "TravelAgency",
-          name: "CVC Itupava & Shopping Boulevard",
-          telephone: ["+554188140633", "+554192844123"],
+          name: "CVC Palotina",
+          telephone: ["+554436493838", "+554499733838"],
         }),
       },
     ],
@@ -122,8 +119,7 @@ const itinerario = roteiroCompleto.map((day, index) => ({
 }));
 
 const lojas = [
-  { nome: "CVC Itupava Shopping Mall", bairro: "Curitiba/PR", endereco: "Itupava Shopping Mall", wa: "554188140633", waDisplay: "+55 41 8814-0633", email: "loja.9387@cvc.com.br", insta: "@cvc.pr.itupavashoppingmall" },
-  { nome: "CVC Shopping Boulevard", bairro: "Xaxim · Curitiba/PR", endereco: "Linha Verde, 16303 — Xaxim", wa: "554192844123", waDisplay: "+55 41 9284-4123", email: "loja.9386@cvc.com.br", insta: "@cvc.pr.shoppingblvdcuritiba" },
+  { nome: "CVC Palotina", bairro: "Palotina/PR", endereco: "Avenida Presidente Kennedy, 735 · Palotina/PR · CEP 85950-000", telefone: "(44) 3649-3838", wa: "554499733838", waDisplay: "(44) 99733-3838", email: "loja.3441@cvc.com.br", insta: "@cvc.pr.palotina" },
 ];
 
 const reviews = [
@@ -176,7 +172,7 @@ function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-12">
         <a href="#top" className="shrink-0">
-          <img src={premiumBanner.url} alt="CVC Premium · Itupava Shopping Mall e Park Shopping Boulevard" className="h-11 w-auto rounded-md md:h-[3.6rem]" />
+          <img src={premiumBanner.url} alt="CVC Palotina" className="h-11 w-auto rounded-md md:h-[3.6rem]" />
         </a>
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map(([l, h]) => (
@@ -701,21 +697,20 @@ function FinaleReveal() {
 /* EQUIPE */
 const equipe = {
   diretores: [
-    { nome: "Will Toporoski", cargo: "Sócio Diretor", desc: "Desenha roteiros internacionais sob medida há anos.", img: willAsset.url },
-    { nome: "Bruna Ynel", cargo: "Sócia Diretora", desc: "Curadoria de experiências e hotéis com olhar de detalhe.", img: brunaAsset.url },
+    { nome: "Ricardo Canossa", cargo: "Sócio-Diretor", desc: "Liderança e cuidado em cada etapa da experiência de viagem.", img: "" },
   ],
   consultores: [
-    { nome: "Otávio", cargo: "Consultor de Experiências", desc: "Acompanha cada viagem da reserva ao retorno.", img: otavioAsset.url },
-    { nome: "Luiz", cargo: "Consultor de Experiências", desc: "Planejamento de circuitos e pacotes personalizados.", img: luizAsset.url },
+    { nome: "Cinthia Keller", cargo: "Consultora de Experiências Internacionais", desc: "Planeja viagens internacionais personalizadas com atenção a cada detalhe.", img: "" },
+    { nome: "Vitória Soares", cargo: "Consultora de Experiências Internacionais", desc: "Ajuda a transformar planos de viagem em experiências inesquecíveis.", img: "" },
   ],
 };
 
 function PessoaCard({ p }: { p: { nome: string; cargo: string; desc: string; img: string } }) {
   return (
     <div className="group overflow-hidden rounded-lg border border-border bg-[color:var(--cvc-bg)] transition hover:border-gold-soft">
-      <div className="aspect-[4/5] overflow-hidden">
+      {p.img ? <div className="aspect-[4/5] overflow-hidden">
         <img src={p.img} alt={`${p.nome} — ${p.cargo}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-      </div>
+      </div> : <div className="flex aspect-[4/5] items-center justify-center bg-gradient-to-br from-[color:var(--cvc-ink)] to-[color:var(--cvc-bg)] font-display text-7xl text-gold-soft" aria-label={`Foto de ${p.nome} indisponível`}>{p.nome.split(" ").map((n) => n[0]).slice(0, 2).join("")}</div>}
       <div className="p-5">
         <h3 className="inline-block border-b border-[#d9b43c]/70 pb-1 font-display text-xl font-semibold text-gold-gradient bg-clip-text animate-shimmer drop-shadow-[0_0_8px_rgba(245,205,85,0.35)]">{p.nome}</h3>
         <div className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-gold-soft">{p.cargo}</div>
@@ -732,10 +727,10 @@ function Equipe() {
         <motion.div {...fadeUp} className="max-w-3xl">
           <span className="text-[0.65rem] uppercase tracking-[0.45em] text-gold-soft">Quem cuida da sua viagem</span>
           <h2 className="mt-4 font-display text-4xl font-light text-off-white md:text-6xl">
-            Equipe <em className="text-gold-gradient bg-clip-text animate-shimmer">CVC Curitiba</em>
+            Equipe <em className="text-gold-gradient bg-clip-text animate-shimmer">CVC Palotina</em>
           </h2>
           <p className="mt-6 font-display text-lg italic leading-relaxed text-off-white/80 md:text-xl">
-            Estão à frente da empresa os diretores <span className="text-gold-soft">William</span> e <span className="text-gold-soft">Bruna</span>, e no comando operacional os consultores <span className="text-gold-soft">Otávio</span> e <span className="text-gold-soft">Luiz</span>, consultores de experiência da CVC Park Shopping Boulevard.
+            Nossa equipe da CVC Palotina está pronta para ajudar você a planejar sua próxima experiência nacional ou internacional, com atendimento próximo e personalizado.
           </p>
         </motion.div>
 
@@ -759,8 +754,7 @@ function Equipe() {
 
 /* FOOTER */
 const unidadesInfo = [
-  { ...lojas[0], titulo: "CVC Itupava", destaque: "Shopping Mall", endereco: "Itupava Shopping Mall · Hugo Lange · Curitiba/PR", mapa: "Itupava Shopping Mall Curitiba" },
-  { ...lojas[1], titulo: "CVC Park Shopping", destaque: "Boulevard", endereco: "Linha Verde, 16303, Loja 1004 · Xaxim · Curitiba/PR", mapa: "Shopping Boulevard Curitiba Linha Verde 16303" },
+  { ...lojas[0], titulo: "CVC", destaque: "Palotina", mapa: "Avenida Presidente Kennedy, 735, Palotina, Paraná, Brasil" },
 ];
 
 function Footer() {
@@ -777,6 +771,7 @@ function Footer() {
               </h3>
               <ul className="mt-6 space-y-3 text-sm">
                 <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-gold-soft" /> {l.endereco}</li>
+                <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold-soft" /> <a href={`tel:${l.telefone.replace(/[^\d+]/g, "")}`} className="hover:text-gold-soft">{l.telefone}</a></li>
                 <li className="flex items-center gap-3"><MessageCircle className="h-4 w-4 text-gold-soft" /> {l.waDisplay}</li>
                 <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold-soft" /><a href={`mailto:${l.email}`} className="hover:text-gold-soft">{l.email}</a></li>
                 <li className="flex items-center gap-3"><Instagram className="h-4 w-4 text-gold-soft" /><a href={`https://instagram.com/${l.insta.replace("@", "")}`} target="_blank" rel="noreferrer" className="hover:text-gold-soft">{l.insta}</a></li>
