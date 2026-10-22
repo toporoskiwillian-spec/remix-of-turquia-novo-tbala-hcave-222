@@ -683,7 +683,7 @@ function FinaleReveal() {
             </p>
             <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-off-white/80">
               Descubra o encontro entre continentes, as paisagens da Capadócia e a experiência de viajar de trem-bala.
-              Com a CVC Curitiba, transforme a vontade de conhecer o mundo em uma viagem inesquecível.
+              Com a CVC Palotina, transforme a vontade de conhecer o mundo em uma viagem inesquecível.
             </p>
             <p className="mt-8 font-display text-2xl text-gold-soft">Fale com nossa equipe e comece a planejar sua Super Turquia.</p>
             <div className="mt-8"><WaChooser label="Falar com um CVC" className="px-8 py-4" /></div>
@@ -761,7 +761,7 @@ function Footer() {
   return (
     <footer className="bg-[color:var(--cvc-ink)] border-t border-border py-16 text-off-white/75">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:px-12">
-        <img src={bannerPrincipal.url} alt="CVC Premium · Itupava Shopping Mall e Park Shopping Boulevard" loading="lazy" className="w-full rounded-xl border border-border" />
+        <img src={bannerPrincipal.url} alt="CVC Palotina" loading="lazy" className="w-full rounded-xl border border-border" />
         {unidadesInfo.map((l) => (
           <div key={l.wa} className="grid overflow-hidden rounded-xl border border-border bg-[color:var(--cvc-bg)] md:grid-cols-2">
             <div className="p-8 md:p-10">
