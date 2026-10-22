@@ -123,7 +123,7 @@ const lojas = [
 ];
 
 const reviews = [
-  { autor: "Marina S.", trecho: "Viagem dos sonhos do começo ao fim. A Bruna cuidou de cada detalhe.", quando: "há 2 semanas" },
+  { autor: "Marina S.", trecho: "Viagem dos sonhos do começo ao fim. A equipe cuidou de cada detalhe.", quando: "há 2 semanas" },
   { autor: "Rafael & Camila", trecho: "Curadoria de outro nível. Voltamos sem ter precisado pensar em nada.", quando: "há 1 mês" },
   { autor: "Família Almeida", trecho: "Roteiro impecável. O suporte 24h fez toda a diferença.", quando: "há 3 meses" },
 ];
